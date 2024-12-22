@@ -5,7 +5,27 @@ import useAuth from '../../hooks/useAuth';
 
 export default function Login() {
   const navigate = useNavigate();
-  const {googlelogin} = useAuth()
+  const {googlelogin,userLogin} = useAuth()
+  const handleLogin = e => {
+    e.preventDefault()
+
+    const form = new FormData(e.target);
+    const email = form.get('email');
+    const password = form.get('password')
+
+    console.log({ email, password });
+    userLogin(email,password)
+    .then(result => {
+        console.log("user logged in",result.user);
+        alert('log in successful')
+        navigate('/')
+    })
+    .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+
+}
   const handleGoogleLogin = () => {
     googlelogin()
     .then((result) => {
@@ -21,7 +41,7 @@ export default function Login() {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded shadow-md">
         <h2 className="text-2xl font-bold text-center">Login</h2>
-        <form className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Email</label>
             <input 
