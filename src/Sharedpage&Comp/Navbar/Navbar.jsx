@@ -16,9 +16,9 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-blue-400 text-gray-100">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown bg-blue-400">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm space-y-2 dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu bg-blue-400 menu-sm space-y-2 dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <NavLink to="/">Home</NavLink>
               <NavLink to="/findtutor">Findtutors</NavLink>
