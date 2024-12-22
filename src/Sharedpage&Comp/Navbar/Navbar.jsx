@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -24,54 +25,29 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm space-y-2 dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/findtutor">Findtutors</NavLink>
+              <NavLink to="/addtutorials">AddTutorials</NavLink>
+              <NavLink to="/mytutorials">MyTutorials</NavLink>
+              <NavLink to="/mybookedtutors">Mybookedtutors</NavLink>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <NavLink to='/' className='p-2 font-bold text-3xl'>PoliglotHub</NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+          <ul className="menu space-x-3 menu-horizontal px-1">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/findtutor">Findtutors</NavLink>
+            <NavLink to="/addtutorials">AddTutorials</NavLink>
+            <NavLink to="/mytutorials">MyTutorials</NavLink>
+            <NavLink to="/mybookedtutors">Mybookedtutors</NavLink>
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end space-x-2">
+          <Link className="btn" to='/login'>Login</Link>
+          <Link className="btn" to='/register'>Register</Link>
         </div>
       </div>
     </div>
