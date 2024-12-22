@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';  // Import Google icon from React Icons
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 export default function Register() {
+  const navigate = useNavigate();
+  const {googlelogin} = useAuth()
   const handleGoogleLogin = () => {
-    // Add your Google login logic here
+    googlelogin()
+    .then((result) => {
+        // console.log(result.user);
+        console.log(result);
+        navigate('/')
+    })
+    .catch((err) => console.log(err.message)
+    )
   };
 
   return (
