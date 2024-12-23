@@ -12,7 +12,7 @@ const Mytutorials = () => {
     },[user?.email])
     const gettingTutorials =async () => {
         try {
-            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/getTutorials?email=${user?.email}`)
+            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/myTutorials?email=${user?.email}`)
             // console.log(data);
             setAlltut(data)
         } catch (error) {
