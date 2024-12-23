@@ -10,6 +10,7 @@ import Addtutorials from "../Privateroute&Pages/Addtutorials/Addtutorials";
 import Mytutorials from "../Privateroute&Pages/Mytutorials/Mytutorials";
 import TutorDetails from "../Privateroute&Pages/Findtutors/TutorDetails";
 import MyBookedTutors from "../Privateroute&Pages/Mybooked/MyBookedTutors";
+import TutorCategory from "../GeneralPages/Find-tutor-categeory/TutorCategory";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,14 @@ const router = createBrowserRouter([
         element: (
           <Privateroute>
             <MyBookedTutors></MyBookedTutors>
+          </Privateroute>
+        ),
+      },
+      {
+        path: "/find/tutor/:language",
+        element: (
+          <Privateroute>
+            <TutorCategory></TutorCategory>
           </Privateroute>
         ),
       },
