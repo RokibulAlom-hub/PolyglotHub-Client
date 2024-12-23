@@ -9,6 +9,7 @@ import Privateroute from "../Privateroute&Pages/Privateroute/Privateroute";
 import Addtutorials from "../Privateroute&Pages/Addtutorials/Addtutorials";
 import Mytutorials from "../Privateroute&Pages/Mytutorials/Mytutorials";
 import TutorDetails from "../Privateroute&Pages/Findtutors/TutorDetails";
+import MyBookedTutors from "../Privateroute&Pages/Mybooked/MyBookedTutors";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,14 @@ const router = createBrowserRouter([
         element: (
           <Privateroute>
             <TutorDetails></TutorDetails>
+          </Privateroute>
+        ),
+      },
+      {
+        path: "/mybookedtutors",
+        element: (
+          <Privateroute>
+            <MyBookedTutors></MyBookedTutors>
           </Privateroute>
         ),
       },
