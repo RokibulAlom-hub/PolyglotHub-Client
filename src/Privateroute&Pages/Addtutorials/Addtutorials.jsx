@@ -55,7 +55,6 @@ const Addtutorials = () => {
             <input
               type="url"
               name="image"
-              defaultValue={user?.photoURL}
               className="w-full px-3 py-2 border rounded-lg shadow-sm"
               required
             />

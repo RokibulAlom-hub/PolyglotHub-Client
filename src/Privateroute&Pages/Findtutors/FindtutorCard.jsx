@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 const FindtutorCard = ({tutor}) => {
     console.log(tutor);
-    const { name, email, Image, language, price, description, review } =tutor;
+    const {_id, name, email, Image, language, price, description, review } =tutor;
+    // console.log(_id);
+    
   return (
     <div>
       <div className="p-6 bg-gray-50 rounded-lg shadow-sm">
@@ -20,7 +22,7 @@ const FindtutorCard = ({tutor}) => {
           <span className="font-semibold">Review:</span> {review}
         </p>
         <Link
-          to={`/tutor-details/example_id`}
+          to={`/tutor-details/${_id}`}
           className="px-4 py-2 font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700"
         >
           Details
