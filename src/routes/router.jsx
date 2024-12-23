@@ -7,6 +7,7 @@ import Login from "../AuthenticationPages/Login/Login";
 import Findtutor from "../Privateroute&Pages/Findtutors/Findtutor";
 import Privateroute from "../Privateroute&Pages/Privateroute/Privateroute";
 import Addtutorials from "../Privateroute&Pages/Addtutorials/Addtutorials";
+import Mytutorials from "../Privateroute&Pages/Mytutorials/Mytutorials";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,14 @@ const router = createBrowserRouter([
         element: (
           <Privateroute>
             <Addtutorials></Addtutorials>
+          </Privateroute>
+        ),
+      },
+      {
+        path: "/mytutorials",
+        element: (
+          <Privateroute>
+            <Mytutorials></Mytutorials>
           </Privateroute>
         ),
       },
