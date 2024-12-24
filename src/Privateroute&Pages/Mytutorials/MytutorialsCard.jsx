@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const MytutorialsCard = ({ tutorials,handleDelete }) => {
   const { _id,name, email, image, language, price, description, review } =
   tutorials;
-  console.log(review);
+  // console.log(review);
 
   return (
     <div>
