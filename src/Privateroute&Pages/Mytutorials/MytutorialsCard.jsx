@@ -1,9 +1,11 @@
+import axios from "axios";
 import React from "react";
 
-const MytutorialsCard = ({ tutorials }) => {
-//   console.log(tutorials);
-  const { name, email, Image, language, price, description, review } =
-    tutorials;
+const MytutorialsCard = ({ tutorials,handleDelete }) => {
+  const { _id,name, email, Image, language, price, description, review } =
+  tutorials;
+  // console.log(_id);
+
   return (
     <div>
       {/* Tutorial Card Structure */}
@@ -27,7 +29,9 @@ const MytutorialsCard = ({ tutorials }) => {
           <span className="text-gray-600 text-sm">Review: {review}</span>
         </div>
         <div className="flex items-center justify-between">
-          <button className="px-4 py-2 font-medium text-white bg-red-600 rounded-lg shadow-sm hover:bg-red-700">
+          <button 
+          onClick={() => handleDelete(_id)}
+          className="px-4 py-2 font-medium text-white bg-red-600 rounded-lg shadow-sm hover:bg-red-700">
             Delete
           </button>
           <button className="px-4 py-2 font-medium text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700">
