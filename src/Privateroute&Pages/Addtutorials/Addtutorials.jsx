@@ -13,10 +13,12 @@ const Addtutorials = () => {
       try {
         const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-tutorials`, initialData);
         console.log(data);
+
         alert("Data creation success"); 
       } catch (error) {
         console.error("Error creating data:", error);
       }
+      e.target.reset();
     };
  
 

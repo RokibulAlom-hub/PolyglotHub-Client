@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MytutorialsCard = ({ tutorials,handleDelete }) => {
   const { _id,name, email, Image, language, price, description, review } =
@@ -34,9 +35,11 @@ const MytutorialsCard = ({ tutorials,handleDelete }) => {
           className="px-4 py-2 font-medium text-white bg-red-600 rounded-lg shadow-sm hover:bg-red-700">
             Delete
           </button>
-          <button className="px-4 py-2 font-medium text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700">
+          <Link 
+          to={`/update/tutor/${_id}`}
+          className="px-4 py-2 font-medium text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700">
             Update
-          </button>
+          </Link>
         </div>
       </div>
     </div>

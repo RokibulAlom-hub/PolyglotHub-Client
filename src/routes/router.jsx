@@ -11,6 +11,7 @@ import Mytutorials from "../Privateroute&Pages/Mytutorials/Mytutorials";
 import TutorDetails from "../Privateroute&Pages/Findtutors/TutorDetails";
 import MyBookedTutors from "../Privateroute&Pages/Mybooked/MyBookedTutors";
 import TutorCategory from "../GeneralPages/Find-tutor-categeory/TutorCategory";
+import UpdateTutorials from "../Privateroute&Pages/UpdateTutorPage/UpdateTutorials";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,15 @@ const router = createBrowserRouter([
             <TutorCategory></TutorCategory>
           </Privateroute>
         ),
+      },
+      {
+        path: "/update/tutor/:id",
+        element: (
+          <Privateroute>
+            <UpdateTutorials></UpdateTutorials>
+          </Privateroute>
+        ),
+        loader:({params}) => fetch(`${import.meta.env.VITE_API_URL}/single-tutorials/${params.id}`)
       },
     ],
   },
