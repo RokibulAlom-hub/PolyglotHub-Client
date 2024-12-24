@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MytutorialsCard = ({ tutorials,handleDelete }) => {
-  const { _id,name, email, Image, language, price, description, review } =
+  const { _id,name, email, image, language, price, description, review } =
   tutorials;
   console.log(review);
 
@@ -12,8 +12,8 @@ const MytutorialsCard = ({ tutorials,handleDelete }) => {
       {/* Tutorial Card Structure */}
       <div className="p-6 bg-gray-50 rounded-lg shadow-sm">
         <img
-          src="image_url"
-          alt="tutorial_language"
+          src={image}
+          alt={name}
           className="w-full h-40 object-cover rounded-lg mb-4"
         />
         <h3 className="text-xl font-bold text-gray-800 mb-2">

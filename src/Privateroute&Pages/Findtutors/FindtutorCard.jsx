@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const FindtutorCard = ({tutor}) => {
-    console.log(tutor);
-    const {_id, name, email, Image, language, price, description, review } =tutor;
+    // console.log(tutor);
+    const {_id, name, email, image, language, price, description, review } =tutor;
     // console.log(_id);
     
   return (
     <div>
       <div className="p-6 bg-gray-50 rounded-lg shadow-sm">
         <img
-          src="example_image_url"
-          alt="example_language"
+          src={image}
+          alt={language}
           className="w-full h-40 object-cover rounded-lg mb-4"
         />
         <h3 className="text-xl font-bold text-gray-800 mb-2">{name}</h3>

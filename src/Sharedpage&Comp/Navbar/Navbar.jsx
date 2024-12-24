@@ -14,6 +14,8 @@ const Navbar = () => {
       })
       .catch((err) => console.log(err.message));
   };
+  console.log(user);
+  
   return (
     <div>
       <div className="navbar bg-blue-400 text-gray-100">

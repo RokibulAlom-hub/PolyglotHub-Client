@@ -1,6 +1,7 @@
 import React, {createContext, useEffect, useState } from 'react';
 import auth from '../AuthenticationPages/FirebaseInit/Firebase.init';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import axios from 'axios';
 export const AuthContext = createContext(null);
 const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null)
@@ -29,8 +30,20 @@ const AuthProvider = ({children}) => {
     // observer settings
     useEffect(() => {
        const unsubscribe = onAuthStateChanged(auth,(currentuser) => {
+           console.log('observer is watching you', currentuser);
             setUser(currentuser)
-            console.log('observer is watching you', currentuser);
+            if(currentuser?.email){
+                const user = {email: currentuser?.email}
+                 axios.post(`${import.meta.env.VITE_API_URL}/jwt`,user,{
+                    withCredentials:true
+                 })
+                 .then(res =>  console.log(res.data))
+               
+                
+            }
+            else{
+                
+            }
             setLoader(false)
         })
         return () =>  {
