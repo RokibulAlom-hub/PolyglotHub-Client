@@ -2,9 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import MytutorialsCard from "./MytutorialsCard";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const Mytutorials = () => {
   const { user } = useAuth();
   const [alltut, setAlltut] = useState([]);
+  const axiosSecure =useAxiosSecure()
   useEffect(() => {
     if (user?.email) {
       gettingTutorials();
@@ -12,14 +14,15 @@ const Mytutorials = () => {
   }, [user?.email]);
   const gettingTutorials = async () => {
     try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/myTutorials?email=${user?.email}`,
-        {
-          withCredentials: true,
-        }
-      );
+      // const { data } = await axios.get(
+      //   `${import.meta.env.VITE_API_URL}/myTutorials?email=${user?.email}`,
+      //   {
+      //     withCredentials: true,
+      //   }
+      // );
       // console.log(data);
-      setAlltut(data);
+      axiosSecure.get(`/myTutorials?email=${user?.email}`)
+      .then(res => setAlltut(res.data))
     } catch (error) {
       console.error("Error getting data:", error);
     }
@@ -44,7 +47,7 @@ const Mytutorials = () => {
           My Added Tutorials
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* maping the alltuut */}
+        
           {alltut.map((tut) => (
             <MytutorialsCard
               key={tut._id}
