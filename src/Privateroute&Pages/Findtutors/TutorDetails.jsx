@@ -30,7 +30,7 @@ const {_id}  = useParams();
       price:tutor.price,
       tutorEmail:tutor.email,
       loggedInEmail:user.email,
-      review:tutor.review
+      review:tutor.review,
     }
    try {
     const {data} = axios.post(`${import.meta.env.VITE_API_URL}/add-booking`,bookedInfo)
