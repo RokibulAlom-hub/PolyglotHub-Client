@@ -38,8 +38,8 @@ const MyBookedTutors = () => {
   console.log(booked);
   
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <div className="flex items-center justify-center min-h-screen dark:bg-gray-700 dark:text-gray-100 bg-gray-100">
+      <div className="w-full dark:bg-gray-700 dark:text-gray-100  max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-center mb-6">
           My Booked Tutors{" "}
           <span className="text-green-400 font-semibold">{booked?.length}</span>
