@@ -51,9 +51,9 @@ const Navbar = () => {
               <NavLink to="/mybookedtutors">Mybookedtutors</NavLink>
             </ul>
           </div>
-          <NavLink to="/" className="p-2 font-bold text-3xl">
+          <Link to="/" className="p-2 font-bold text-3xl">
             PolyglotHub
-          </NavLink>
+          </Link>
         </div>
         <button
           onClick={toggleTheme}

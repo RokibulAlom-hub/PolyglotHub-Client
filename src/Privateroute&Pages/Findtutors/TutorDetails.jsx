@@ -38,9 +38,11 @@ const {_id}  = useParams();
    try {
     const {data} = axios.post(`${import.meta.env.VITE_API_URL}/add-booking`,bookedInfo)
     console.log(data);
-    alert('succeesfully booked')
+    SweetSuccess();
+    navigate('/mybookedtutors')
    } catch (error) {
     console.error("Error getting data:", error);
+    SweetError()
    }
   }
   return (

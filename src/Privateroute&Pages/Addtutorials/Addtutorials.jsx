@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
+import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
+import SweetError from "../../Components/Sweetalerts/SweetError";
 const Addtutorials = () => {
+    const navigate =useNavigate()
     const {user} = useAuth();
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -13,10 +17,11 @@ const Addtutorials = () => {
       try {
         const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-tutorials`, initialData);
         console.log(data);
-
-        alert("Data creation success"); 
+        SweetSuccess();
+        navigate('/mytutorials')
       } catch (error) {
         console.error("Error creating data:", error);
+        SweetError()
       }
       e.target.reset();
     };

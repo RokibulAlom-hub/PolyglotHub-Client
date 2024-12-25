@@ -1,9 +1,11 @@
 import React from "react";
 // import useAuth from '../../hooks/useAuth';
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
+import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
 
 const UpdateTutorials = () => {
+  const navigate =useNavigate()
   // const {user} = useAuth();
   const loadData = useLoaderData({});
   const { _id, name, email, Image, language, price, description, review } =
@@ -21,8 +23,8 @@ const UpdateTutorials = () => {
         updateData
       );
       console.log(data);
-
-      alert("Data updated success");
+      SweetSuccess();
+      navigate('/mytutorials')
     } catch (error) {
       console.error("Error creating data:", error);
     }

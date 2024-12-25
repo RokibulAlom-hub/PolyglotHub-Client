@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import MytutorialsCard from "./MytutorialsCard";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 const Mytutorials = () => {
   const { user } = useAuth();
   const [alltut, setAlltut] = useState([]);
@@ -28,18 +29,47 @@ const Mytutorials = () => {
     }
   };
   const handleDelete = (_id) => {
-    try {
-      const { data } = axios.delete(
-        `${import.meta.env.VITE_API_URL}/tutorials-delete/${_id}`
-      );
-      console.log(data);
-      setAlltut((prevTutorilas) =>
-        prevTutorilas.filter((tutorial) => tutorial._id !== _id)
-      );
-    } catch (error) {
-      console.error("Error getting data:", error);
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const { data } = await axios.delete(
+            `${import.meta.env.VITE_API_URL}/tutorials-delete/${_id}`
+          );
+          console.log(data);
+  
+          // Update state after deletion
+          setAlltut((prevTutorilas) =>
+            prevTutorilas.filter((tutorial) => tutorial._id !== _id)
+          );
+  
+          // Show success alert
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        } catch (error) {
+          console.error("Error deleting data:", error);
+  
+          // Show error alert
+          Swal.fire({
+            title: "Error!",
+            text: "Failed to delete the file. Please try again.",
+            icon: "error",
+          });
+        }
+      }
+    });
   };
+  
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">

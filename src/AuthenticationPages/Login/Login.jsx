@@ -3,6 +3,7 @@ import { FaGoogle } from 'react-icons/fa';  // Import Google icon from React Ico
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import SweetSuccess from '../../Components/Sweetalerts/SweetSuccess';
+import SweetError from '../../Components/Sweetalerts/SweetError';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -18,12 +19,13 @@ export default function Login() {
     userLogin(email,password)
     .then(result => {
         console.log("user logged in",result.user);
-        alert('log in successful')
+        SweetSuccess();
         navigate('/')
     })
     .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
+        SweetError()
       });
 
 }
@@ -32,10 +34,14 @@ export default function Login() {
     .then((result) => {
         // console.log(result.user);
         console.log(result);
-        <SweetSuccess></SweetSuccess>
-        
+        SweetSuccess();
+        navigate('/')
     })
-    .catch((err) => console.log(err.message)
+    .catch((err) =>{
+      console.log(err.message);
+      SweetError()
+      
+    }
     )
   };
 

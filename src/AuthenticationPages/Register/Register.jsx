@@ -23,12 +23,13 @@ export default function Register() {
         updateUserData({ displayName: name, photoURL: photoURL }).then(() => {
           setUser({ displayName: name, photoURL: photoURL, ...user });
         });
-        alert('user created successfully')
-        navigate("/");
+        SweetSuccess();
+        navigate('/')
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
+        SweetError()
       });
   };
 
