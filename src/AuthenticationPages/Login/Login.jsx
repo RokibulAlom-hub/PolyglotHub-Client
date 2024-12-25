@@ -2,6 +2,7 @@ import React from 'react';
 import { FaGoogle } from 'react-icons/fa';  // Import Google icon from React Icons
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import SweetSuccess from '../../Components/Sweetalerts/SweetSuccess';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -31,7 +32,8 @@ export default function Login() {
     .then((result) => {
         // console.log(result.user);
         console.log(result);
-        navigate('/')
+        <SweetSuccess></SweetSuccess>
+        
     })
     .catch((err) => console.log(err.message)
     )

@@ -35,11 +35,7 @@ const router = createBrowserRouter([
       // this all are private route pages
       {
         path: "/findtutor",
-        element: (
-          <Privateroute>
-            <Findtutor></Findtutor>
-          </Privateroute>
-        ),
+        element: <Findtutor></Findtutor>,
       },
       {
         path: "/addtutorials",
@@ -75,11 +71,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/find/tutor/:language",
-        element: (
-          <Privateroute>
-            <TutorCategory></TutorCategory>
-          </Privateroute>
-        ),
+        element: <TutorCategory></TutorCategory>,
       },
       {
         path: "/update/tutor/:id",
@@ -88,7 +80,10 @@ const router = createBrowserRouter([
             <UpdateTutorials></UpdateTutorials>
           </Privateroute>
         ),
-        loader:({params}) => fetch(`${import.meta.env.VITE_API_URL}/single-tutorials/${params.id}`)
+        loader: ({ params }) =>
+          fetch(
+            `${import.meta.env.VITE_API_URL}/single-tutorials/${params.id}`
+          ),
       },
     ],
   },
