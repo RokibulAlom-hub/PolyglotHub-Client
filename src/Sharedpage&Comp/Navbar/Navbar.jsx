@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { ThemeContext } from "../../Components/Themecontext/ThemeProvider";
 
 const Navbar = () => {
   const { user, userLogout } = useAuth();
+  const {theme,toggleTheme} = useContext(ThemeContext)
   const navigate = useNavigate();
   const handleLogout = () => {
     userLogout()
@@ -15,10 +17,10 @@ const Navbar = () => {
       .catch((err) => console.log(err.message));
   };
   console.log(user);
-  
+
   return (
     <div>
-      <div className="navbar bg-blue-400 text-gray-100">
+      <div className="navbar bg-blue-400 dark:bg-gray-700 text-gray-100 dark:text-gray-100">
         <div className="navbar-start">
           <div className="dropdown bg-blue-400">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,7 +41,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu bg-blue-400 menu-sm space-y-2 dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu bg-blue-400 menu-sm space-y-2 dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <NavLink to="/">Home</NavLink>
               <NavLink to="/findtutor">Findtutors</NavLink>
@@ -52,6 +54,12 @@ const Navbar = () => {
             PolyglotHub
           </NavLink>
         </div>
+        <button
+          onClick={toggleTheme}
+          className="px-4 py-2 rounded bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+        >
+          {theme === "dark" ? "Light Mode" : "Dark Mode"}
+        </button>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu space-x-3 menu-horizontal px-1">
             <NavLink to="/">Home</NavLink>

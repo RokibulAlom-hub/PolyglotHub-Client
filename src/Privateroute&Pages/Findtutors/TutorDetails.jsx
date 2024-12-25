@@ -32,6 +32,9 @@ const {_id}  = useParams();
       loggedInEmail:user.email,
       review:tutor.review,
     }
+    if (user?.email === tutor.email) {
+      return alert ('tutor and tuorials booker is same so go back')
+    }
    try {
     const {data} = axios.post(`${import.meta.env.VITE_API_URL}/add-booking`,bookedInfo)
     console.log(data);
