@@ -32,12 +32,12 @@ const MytutorialsCard = ({ tutorials,handleDelete }) => {
         <div className="flex items-center justify-between">
           <button 
           onClick={() => handleDelete(_id)}
-          className="px-4 py-2 font-medium text-white bg-red-600 rounded-lg shadow-sm hover:bg-red-700">
+          className="px-2 py-2 font-medium text-white bg-red-600 rounded-lg shadow-sm hover:bg-red-700">
             Delete
           </button>
           <Link 
           to={`/update/tutor/${_id}`}
-          className="px-4 py-2 font-medium text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700">
+          className="px-2 py-2 font-medium text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700">
             Update
           </Link>
         </div>

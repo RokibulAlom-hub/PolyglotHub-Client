@@ -20,8 +20,8 @@ const Navbar = () => {
   console.log(user);
 
   return (
-    <div>
-      <div className="navbar bg-blue-400 dark:bg-gray-700 text-gray-100 dark:text-gray-100">
+    <div className="bg-blue-400 ">
+      <div className="navbar  w-11/12 mx-auto dark:bg-gray-700 text-gray-100 dark:text-gray-100">
         <div className="navbar-start">
           <div className="dropdown bg-blue-400 dark:bg-gray-700 dark:text-gray-100">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,13 +66,13 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-          <Link to="/" className="p-2 font-bold text-3xl">
+          <Link to="/" className="p-2 md:font-bold hidden md:block md:text-3xl ">
             PolyglotHub
           </Link>
         </div>
         <button
           onClick={toggleTheme}
-          className="px-3 py-1 rounded border border-yellow-300 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+          className="px-2 mr-1 py-1 rounded border border-yellow-300 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
         >
           {theme === "dark" ? (
             <div className="text-yellow-400">
@@ -119,7 +119,7 @@ const Navbar = () => {
         <div className="navbar-end space-x-2">
           {user ? (
             <div>
-              <Link className="btn" to="/login" onClick={handleLogout}>
+              <Link className="btn-sm p-1 border rounded-md border-red-200 md:btn-md" to="/login" onClick={handleLogout}>
                 Logout
               </Link>
               <div className="dropdown dropdown-end">
@@ -128,9 +128,9 @@ const Navbar = () => {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="w-10 rounded-full">
+                  <div className="w-8 rounded-full hidden md:block">
                     <img
-                      alt="Tailwind CSS Navbar component"
+                      alt="user"
                       src={user?.photoURL}
                     />
                   </div>

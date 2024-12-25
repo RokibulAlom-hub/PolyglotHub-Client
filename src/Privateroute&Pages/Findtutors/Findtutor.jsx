@@ -35,9 +35,9 @@ const Findtutor = () => {
               type="text"
               name="search"
               placeholder="Enter Job Title"
-              className="input input-bordered join-item"
+              className="input  join-item"
             />
-            <button className="btn btn-primary join-item">Search</button>
+            <button className="btn bg-blue-300 join-item">Search</button>
           </div>
         </form>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
