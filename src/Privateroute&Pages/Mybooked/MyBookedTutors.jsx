@@ -10,36 +10,44 @@ const MyBookedTutors = () => {
       getBookingList();
     }
   }, [user?.email]);
-  // get booking list if user from database
+
+  // Get booking list from the database
   const getBookingList = async () => {
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/my-bookings?email=${user?.email}`
       );
-      console.log(data);
       setBooked(data);
     } catch (error) {
       console.error("Error getting data:", error);
     }
   };
-  // update review the course through clickling
-  const updateReveiw = async(_id) => {
+
+  // Update review when clicked
+  const updateReview = async (_id) => {
     try {
+      //  increment the review count in server
       const { data } = await axios.patch(
         `${import.meta.env.VITE_API_URL}/update/review/${_id}`
       );
+
+      // Find the updated tutor in the state and update the UI
+      setBooked((prevBooked) =>
+        prevBooked.map((tutor) =>
+          tutor._id === _id
+            ? { ...tutor, review: tutor.review + 1 } // Increment locally to reflect immediately
+            : tutor
+        )
+      );
       console.log(data);
-      alert('count updated')
-      
     } catch (error) {
-      console.error("Error getting data:", error);
+      console.error("Error updating review:", error);
     }
   };
-  console.log(booked);
-  
+
   return (
     <div className="flex items-center justify-center min-h-screen dark:bg-gray-700 dark:text-gray-100 bg-gray-100">
-      <div className="w-full dark:bg-gray-700 dark:text-gray-100  max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
+      <div className="w-full dark:bg-gray-700 dark:text-gray-100 max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-center mb-6">
           My Booked Tutors{" "}
           <span className="text-green-400 font-semibold">{booked?.length}</span>
@@ -59,7 +67,7 @@ const MyBookedTutors = () => {
                 {tutor?.name}
               </h3>
               <p className="text-gray-700 mb-2">
-                <span className="font-semibold">Language:</span>
+                <span className="font-semibold">Language:</span>{" "}
                 {tutor?.language}
               </p>
               <p className="text-gray-700 mb-2">
@@ -69,10 +77,10 @@ const MyBookedTutors = () => {
                 <span className="font-semibold">Review:</span> {tutor?.review}
               </p>
               <button
-                onClick={() => updateReveiw(tutor?.tutorialsId)}
-                className="px-4 py-2 font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700"
+                onClick={() => updateReview(tutor?._id)}
+                className={`px-4 py-2 font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700`}
               >
-                Review
+                Reveiw
               </button>
             </div>
           ))}

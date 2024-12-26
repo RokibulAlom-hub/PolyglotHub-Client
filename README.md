@@ -1,127 +1,87 @@
-b10a11-client-side-RokibulAlom-hub
-
-import React, { useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { ThemeContext } from "../../Components/Themecontext/ThemeProvider";
-import'./Navbar.css'
-import { IoMoon, IoSunny } from "react-icons/io5";
-const Navbar = () => {
-  const { user, userLogout } = useAuth();
-  const {theme,toggleTheme} = useContext(ThemeContext)
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    userLogout()
-      .then((result) => {
-        // console.log(result.user);
-        console.log(result);
-        navigate("/login");
-      })
-      .catch((err) => console.log(err.message));
+import axios from "axios";
+
+const MyBookedTutors = () => {
+  const { user } = useAuth();
+  const [booked, setBooked] = useState([]);
+  useEffect(() => {
+    if (user?.email) {
+      getBookingList();
+    }
+  }, [user?.email]);
+  // get booking list if user from database
+  const getBookingList = async () => {
+    try {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/my-bookings?email=${user?.email}`
+      );
+      console.log(data);
+      setBooked(data);
+    } catch (error) {
+      console.error("Error getting data:", error);
+    }
   };
-  console.log(user);
-
+  // update review the course through clickling
+  const updateReveiw = async(_id) => {
+    try {
+      const { data } = await axios.patch(
+        `${import.meta.env.VITE_API_URL}/update/review/${_id}`
+      );
+      console.log(data);
+      // find the updated data 
+      setBooked(prevdata => 
+        prevdata.map((tutor) => tutor._id === _id ? {...tutor,review:tutor.review+1}:tutor)
+      )
+    } catch (error) {
+      console.error("Error getting data:", error);
+    }
+  };
+  // console.log(booked);
+  
   return (
-    <div>
-      <div className="navbar bg-blue-400 dark:bg-gray-700 text-gray-100 dark:text-gray-100">
-        <div className="navbar-start">
-          <div className="dropdown bg-blue-400">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu bg-blue-400 menu-sm space-y-2 dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow"
+    <div className="flex items-center justify-center min-h-screen dark:bg-gray-700 dark:text-gray-100 bg-gray-100">
+      <div className="w-full dark:bg-gray-700 dark:text-gray-100  max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
+        <h2 className="text-3xl font-bold text-center mb-6">
+          My Booked Tutors{" "}
+          <span className="text-green-400 font-semibold">{booked?.length}</span>
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {booked.map((tutor) => (
+            <div
+              key={tutor?._id}
+              className="p-6 bg-gray-50 rounded-lg shadow-sm"
             >
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/findtutor">Findtutors</NavLink>
-              <NavLink to="/addtutorials">AddTutorials</NavLink>
-              <NavLink to="/mytutorials">MyTutorials</NavLink>
-              <NavLink to="/mybookedtutors">Mybookedtutors</NavLink>
-            </ul>
-          </div>
-          <Link to="/" className="p-2 font-bold text-3xl">
-            PolyglotHub
-          </Link>
-        </div>
-        <button
-          onClick={toggleTheme}
-          className="px-3 py-1 rounded border border-yellow-300 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-        >
-          {theme === "dark" ? <div className="text-yellow-400">
-            <IoSunny />
-          </div> : <div className="text-black">
-            <IoMoon />
-          </div> }
-        </button>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu space-x-3 menu-horizontal px-1">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/findtutor">Findtutors</NavLink>
-            <NavLink to="/addtutorials">AddTutorials</NavLink>
-            <NavLink to="/mytutorials">MyTutorials</NavLink>
-            <NavLink to="/mybookedtutors">Mybookedtutors</NavLink>
-          </ul>
-        </div>
-        <div className="navbar-end space-x-2">
-          {user ? (
-            <div className="flex gap-2 items-center justify-center">
               <img
-                src={user?.photoURL}
-                alt={user?.displayName}
-                className="w-10 h-10 rounded-lg"
+                src={tutor?.image}
+                alt={tutor?.language}
+                className="w-full h-40 object-cover rounded-lg mb-4"
               />
-
-              <Link className="btn" to="/login" onClick={handleLogout}>
-                Logout
-              </Link>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {tutor?.name}
+              </h3>
+              <p className="text-gray-700 mb-2">
+                <span className="font-semibold">Language:</span>
+                {tutor?.language}
+              </p>
+              <p className="text-gray-700 mb-2">
+                <span className="font-semibold">Price:</span> ${tutor?.price}
+              </p>
+              <p className="text-gray-700 mb-4">
+                <span className="font-semibold">Review:</span> {tutor?.review}
+              </p>
+              <button
+                onClick={() => updateReveiw(tutor?.tutorialsId)}
+                className="px-4 py-2 font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700"
+              >
+                Review
+              </button>
             </div>
-          ) : (
-            <div>
-              <Link className="btn" to="/login">
-                Login
-              </Link>
-            </div>
-          )}
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default Navbar;
-
-
-
-   {user ? (
-            <div className="flex gap-2 items-center justify-center">
-              <img
-                src={user?.photoURL}
-                alt={user?.displayName}
-                className="w-10 h-10 rounded-lg"
-              />
-
-              <Link className="btn" to="/login" onClick={handleLogout}>
-                Logout
-              </Link>
-            </div>
-          ) : (
-            <div>
-              <Link className="btn" to="/login">
-                Login
-              </Link>
-            </div>
-          )}
+export default MyBookedTutors;
