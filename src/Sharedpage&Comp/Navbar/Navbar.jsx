@@ -2,22 +2,20 @@ import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { ThemeContext } from "../../Components/Themecontext/ThemeProvider";
-import "./Navbar.css";
 import { IoMoon, IoSunny } from "react-icons/io5";
 const Navbar = () => {
   const { user, userLogout } = useAuth();
   const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const handleLogout = () => {
-    userLogout()
-      .then((result) => {
-        // console.log(result.user);
-        console.log(result);
-        navigate("/login");
-      })
-      .catch((err) => console.log(err.message));
+    userLogout().then((result) => {
+      //  console.log(result.user);
+      // console.log(result);
+      navigate("/login");
+    });
+    // .catch((err) => console.log(err.message));
   };
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className="bg-orange-400  dark:bg-gray-700 dark:text-gray-100 ">
@@ -66,7 +64,10 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-          <Link to="/" className="p-2 md:font-bold hidden md:block md:text-3xl ">
+          <Link
+            to="/"
+            className="p-2 md:font-bold hidden md:block md:text-3xl "
+          >
             PolyglotHub
           </Link>
         </div>
@@ -97,7 +98,7 @@ const Navbar = () => {
                 {user ? (
                   <details>
                     <summary>MyLinks</summary>
-                    <ul className="bg-blue-400  dark:bg-gray-700 rounded-t-none p-2">
+                    <ul className="bg-gray-700 dark:bg-orange-400 rounded-t-none p-2">
                       <li>
                         <NavLink to="/addtutorials">AddTutorials</NavLink>
                       </li>
@@ -120,9 +121,13 @@ const Navbar = () => {
           {user ? (
             <div className="flex justify-between items-center">
               <div>
-              <Link className="btn-sm p-1 border rounded-md border-red-200 md:btn-md" to="/login" onClick={handleLogout}>
-                Logout
-              </Link>
+                <Link
+                  className="btn-sm p-1 border font-bold text-black rounded-md bg-gradient-to-r from-pink-50 to-purple-100 md:btn-md"
+                  to="/login"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Link>
               </div>
               <div className="dropdown dropdown-end">
                 <div
@@ -131,10 +136,7 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar"
                 >
                   <div className="w-8 rounded-full hidden md:block">
-                    <img
-                      alt="user"
-                      src={user?.photoURL}
-                    />
+                    <img alt="user" src={user?.photoURL} />
                   </div>
                 </div>
                 <ul
@@ -151,7 +153,10 @@ const Navbar = () => {
             </div>
           ) : (
             <div>
-              <Link className="btn" to="/login">
+              <Link
+                className="btn-sm p-1 border font-bold text-black rounded-md bg-gradient-to-r from-pink-50 to-purple-100 md:btn-md"
+                to="/login"
+              >
                 Login
               </Link>
             </div>

@@ -22,7 +22,7 @@ const MyBookedTutors = () => {
       const { data } = await axiosSecure.get(`/my-bookings?email=${user?.email}`)
       setBooked(data);
     } catch (error) {
-      console.error("Error getting data:", error);
+      // console.error("Error getting data:", error);
     }
   };
 
@@ -42,9 +42,9 @@ const MyBookedTutors = () => {
             : tutor
         )
       );
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.error("Error updating review:", error);
+      // console.error("Error updating review:", error);
     }
   };
 

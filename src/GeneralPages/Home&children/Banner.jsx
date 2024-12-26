@@ -1,7 +1,7 @@
-import React from 'react';
-import bgimag from '../../assets/10251767.jpg';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React from "react";
+import bgimag from "../../assets/10251767.jpg";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
@@ -25,10 +25,7 @@ const Banner = () => {
           >
             Learn faster with your best language tutor
           </motion.h1>
-          <Link
-            to="/login"
-            className="bg-pink-400 rounded text-base-100 font-bold p-4"
-          >
+          <Link className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out ">
             Get Started
           </Link>
         </motion.div>

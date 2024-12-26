@@ -25,11 +25,11 @@ const Mytutorials = () => {
       const { data } = await axiosSecure.get(
         `/myTutorials?email=${user?.email}`
       );
-      console.log(data);
+      // console.log(data);
       // axiosSecure.get(`/myTutorials?email=${user?.email}`)
       setAlltut(data);
     } catch (error) {
-      console.error("Error getting data:", error);
+      // console.error("Error getting data:", error);
     }
   };
   const handleDelete = (_id) => {
@@ -47,7 +47,7 @@ const Mytutorials = () => {
           const { data } = await axios.delete(
             `${import.meta.env.VITE_API_URL}/tutorials-delete/${_id}`
           );
-          console.log(data);
+          // console.log(data);
 
           // Update state after deletion
           setAlltut((prevTutorilas) =>
@@ -61,7 +61,7 @@ const Mytutorials = () => {
             icon: "success",
           });
         } catch (error) {
-          console.error("Error deleting data:", error);
+          // console.error("Error deleting data:", error);
 
           // Show error alert
           Swal.fire({

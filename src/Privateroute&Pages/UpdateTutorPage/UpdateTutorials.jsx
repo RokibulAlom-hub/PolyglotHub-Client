@@ -15,18 +15,18 @@ const UpdateTutorials = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const updateData = Object.fromEntries(formData.entries());
-    // console.log(updateData);
+    //  console.log(updateData);
 
     try {
       const { data } = await axios.patch(
         `${import.meta.env.VITE_API_URL}/update/tutorials/${_id}`,
         updateData
       );
-      console.log(data);
+      // console.log(data);
       SweetSuccess();
       navigate('/mytutorials')
     } catch (error) {
-      console.error("Error creating data:", error);
+      // console.error("Error creating data:", error);
     }
     // e.target.reset();
   };

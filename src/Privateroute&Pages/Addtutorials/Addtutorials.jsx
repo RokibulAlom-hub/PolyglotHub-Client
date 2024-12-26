@@ -14,15 +14,15 @@ const Addtutorials = () => {
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
     initialData.review = 0;
-    console.log(initialData);
+    // console.log(initialData);
 
     try {
       const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-tutorials`, initialData);
-      console.log(data);
+      // console.log(data);
       SweetSuccess();
       navigate('/mytutorials');
     } catch (error) {
-      console.error("Error creating data:", error);
+      // console.error("Error creating data:", error);
       SweetError();
     }
     e.target.reset();

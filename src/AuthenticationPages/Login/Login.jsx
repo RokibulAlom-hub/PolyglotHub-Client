@@ -16,16 +16,16 @@ export default function Login() {
     const email = form.get('email');
     const password = form.get('password');
 
-    console.log({ email, password });
+    // console.log({ email, password });
     userLogin(email, password)
       .then(result => {
-        console.log("user logged in", result.user);
+        // console.log("user logged in", result.user);
         SweetSuccess();
         navigate('/');
       })
       .catch(error => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        // console.log(errorMessage);
         SweetError();
       });
   };
@@ -33,12 +33,12 @@ export default function Login() {
   const handleGoogleLogin = () => {
     googlelogin()
       .then(result => {
-        console.log(result);
+        // console.log(result);
         SweetSuccess();
         navigate('/');
       })
       .catch(err => {
-        console.log(err.message);
+        // console.log(err.message);
         SweetError();
       });
   };

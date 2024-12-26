@@ -5,7 +5,7 @@ import FindtutorCard from "../../Privateroute&Pages/Findtutors/FindtutorCard";
 
 const TutorCategory = () => {
   const {language }=useParams()
-//   console.log(language);
+  // console.log(language);
   
   const [allTutor, setAlltutor] = useState([]);
   useEffect(() => {
@@ -17,10 +17,10 @@ const TutorCategory = () => {
           `${import.meta.env.VITE_API_URL}/get-all-tutors?language=${language}`
             
         );
-        console.log(data);
+        // console.log(data);
         setAlltutor(data)
       } catch (error) {
-        console.error("Error getting data:", error);
+        // console.error("Error getting data:", error);
       }
   };
   return (

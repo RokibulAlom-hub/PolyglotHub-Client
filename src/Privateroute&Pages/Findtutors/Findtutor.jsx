@@ -13,13 +13,13 @@ const Findtutor = () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/get-all-tutors?search=${search}`
       );
-      //   console.log(data);
+      // console.log(data);
       setAlltutor(data);
     } catch (error) {
-      console.error("Error getting data:", error);
+      // console.error("Error getting data:", error);
     }
   };
-  console.log(search);
+  // console.log(search);
   
   return (
     <div className="flex items-center  dark:bg-gray-700 dark:text-gray-100 justify-center min-h-screen bg-gray-100">

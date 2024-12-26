@@ -10,7 +10,7 @@ const TutorDetails = () => {
   const [tutor, setTutor] = useState({});
   const { user } = useAuth();
   const { _id } = useParams();
-  console.log(_id);
+  // console.log(_id);
   useEffect(() => {
     getTutorialsByid();
   }, [_id]);
@@ -20,10 +20,10 @@ const TutorDetails = () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/single-tutorials/${_id}`
       );
-      //   console.log(data);
+        //  console.log(data);
       setTutor(data);
     } catch (error) {
-      console.error("Error getting data:", error);
+      // console.error("Error getting data:", error);
     }
   };
   const handleBooked = async () => {
@@ -45,11 +45,11 @@ const TutorDetails = () => {
         `${import.meta.env.VITE_API_URL}/add-booking`,
         bookedInfo
       );
-      console.log(data);
+      // console.log(data);
       SweetSuccess();
       navigate("/mybookedtutors");
     } catch (error) {
-      console.error("Error getting data:", error);
+      // console.error("Error getting data:", error);
       SweetError();
     }
   };

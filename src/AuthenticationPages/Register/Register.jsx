@@ -18,11 +18,11 @@ export default function Register() {
     const email = form.get("email");
     const password = form.get("password");
 
-    console.log({ name, photoURL, email, password });
+    // console.log({ name, photoURL, email, password });
 
     createUserByemail(email, password, name, photoURL)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         updateUserData({ displayName: name, photoURL: photoURL }).then(() => {
           setUser({ displayName: name, photoURL: photoURL, ...user });
         });
@@ -31,7 +31,7 @@ export default function Register() {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        // console.log(errorMessage);
         SweetError();
       });
   };
@@ -39,10 +39,10 @@ export default function Register() {
   const handleGoogleLogin = () => {
     googlelogin()
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         navigate("/");
       })
-      .catch((err) => console.log(err.message));
+      // .catch((err) => console.log(err.message));
   };
 
   return (
