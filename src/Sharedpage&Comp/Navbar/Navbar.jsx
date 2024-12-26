@@ -20,7 +20,7 @@ const Navbar = () => {
   console.log(user);
 
   return (
-    <div className="bg-blue-400  dark:bg-gray-700 dark:text-gray-100 ">
+    <div className="bg-orange-400  dark:bg-gray-700 dark:text-gray-100 ">
       <div className="navbar  w-11/12 mx-auto  text-gray-100 ">
         <div className="navbar-start">
           <div className="dropdown bg-blue-400 dark:bg-gray-700 dark:text-gray-100">
@@ -72,7 +72,7 @@ const Navbar = () => {
         </div>
         <button
           onClick={toggleTheme}
-          className="px-2 mr-1 py-1 rounded border border-yellow-300 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+          className="px-2 mr-1 py-1 rounded border border-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
         >
           {theme === "dark" ? (
             <div className="text-yellow-400">
