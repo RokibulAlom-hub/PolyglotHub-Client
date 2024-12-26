@@ -7,64 +7,62 @@ import SweetError from '../../Components/Sweetalerts/SweetError';
 
 export default function Login() {
   const navigate = useNavigate();
-  const {googlelogin,userLogin} = useAuth()
+  const { googlelogin, userLogin } = useAuth();
+
   const handleLogin = e => {
-    e.preventDefault()
+    e.preventDefault();
 
     const form = new FormData(e.target);
     const email = form.get('email');
-    const password = form.get('password')
+    const password = form.get('password');
 
     console.log({ email, password });
-    userLogin(email,password)
-    .then(result => {
-        console.log("user logged in",result.user);
+    userLogin(email, password)
+      .then(result => {
+        console.log("user logged in", result.user);
         SweetSuccess();
-        navigate('/')
-    })
-    .catch((error) => {
+        navigate('/');
+      })
+      .catch(error => {
         const errorMessage = error.message;
         console.log(errorMessage);
-        SweetError()
+        SweetError();
       });
+  };
 
-}
   const handleGoogleLogin = () => {
     googlelogin()
-    .then((result) => {
-        // console.log(result.user);
+      .then(result => {
         console.log(result);
         SweetSuccess();
-        navigate('/')
-    })
-    .catch((err) =>{
-      console.log(err.message);
-      SweetError()
-      
-    }
-    )
+        navigate('/');
+      })
+      .catch(err => {
+        console.log(err.message);
+        SweetError();
+      });
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded shadow-md">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-700 dark:text-gray-100">
+      <div className="w-full max-w-md border-blue-400 border p-8 space-y-8 bg-white dark:bg-gray-700 dark:text-gray-100 rounded shadow-md">
         <h2 className="text-2xl font-bold text-center">Login</h2>
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Email</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">Email</label>
             <input 
               type="email" 
               name="email" 
-              className="w-full px-3 py-2 border rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
               required 
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Password</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">Password</label>
             <input 
               type="password" 
               name="password" 
-              className="w-full px-3 py-2 border rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
               required 
             />
           </div>
@@ -81,7 +79,7 @@ export default function Login() {
           </button>
         </div>
         <div className="text-center">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-gray-100">
             Don't have an account? <Link to="/register" className="text-indigo-600 hover:text-indigo-800">Register</Link>
           </p>
         </div>

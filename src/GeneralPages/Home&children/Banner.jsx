@@ -14,7 +14,7 @@ const Banner = () => {
         </button>
       </div>
       <div className="flex-1">
-        <img src={bgimag} alt="Video call" className="rounded-lg  shadow-lg max-w-full h-auto" />
+        <img src={bgimag} className="rounded-lg  shadow-lg max-w-full h-auto" />
       </div>
     </div>
    </div>

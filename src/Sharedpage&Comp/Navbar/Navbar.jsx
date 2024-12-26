@@ -20,8 +20,8 @@ const Navbar = () => {
   console.log(user);
 
   return (
-    <div className="bg-blue-400 ">
-      <div className="navbar  w-11/12 mx-auto dark:bg-gray-700 text-gray-100 dark:text-gray-100">
+    <div className="bg-blue-400  dark:bg-gray-700 dark:text-gray-100 ">
+      <div className="navbar  w-11/12 mx-auto  text-gray-100 ">
         <div className="navbar-start">
           <div className="dropdown bg-blue-400 dark:bg-gray-700 dark:text-gray-100">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -118,10 +118,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-end space-x-2">
           {user ? (
-            <div>
+            <div className="flex justify-between items-center">
+              <div>
               <Link className="btn-sm p-1 border rounded-md border-red-200 md:btn-md" to="/login" onClick={handleLogout}>
                 Logout
               </Link>
+              </div>
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
@@ -140,7 +142,7 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content cursor-not-allowed bg-base-100 text-black rounded z-[1] mt-3 w-20 p-2 shadow"
                 >
                   <li>
-                    <p className="justify-between text-black">
+                    <p className="justify-between bg-base-100 text-black">
                       {user?.displayName}
                     </p>
                   </li>

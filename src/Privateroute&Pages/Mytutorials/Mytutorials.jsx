@@ -15,15 +15,15 @@ const Mytutorials = () => {
   }, [user?.email]);
   const gettingTutorials = async () => {
     try {
-      // const { data } = await axios.get(
-      //   `${import.meta.env.VITE_API_URL}/myTutorials?email=${user?.email}`,
-      //   {
-      //     withCredentials: true,
-      //   }
-      // );
-      // console.log(data);
-      axiosSecure.get(`/myTutorials?email=${user?.email}`)
-      .then(res => setAlltut(res.data))
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/myTutorials?email=${user?.email}`,
+        {
+          withCredentials: true,
+        }
+      );
+      console.log(data);
+      // axiosSecure.get(`/myTutorials?email=${user?.email}`)
+     setAlltut(data)
     } catch (error) {
       console.error("Error getting data:", error);
     }
