@@ -54,8 +54,8 @@ const TutorDetails = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-4xl p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <div className="flex items-center  dark:bg-gray-700 dark:text-gray-100 justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-4xl  my-6 border border-pink-300  p-8 space-y-8 bg-white rounded-lg shadow-md">
         <img
           src={tutor.image}
           alt={tutor.language}
@@ -77,7 +77,7 @@ const TutorDetails = () => {
         </p>
         <button
           onClick={handleBooked}
-          className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700"
+          className="w-full px-4 py-2 font-medium text-white bg-pink-600 rounded-lg shadow-sm hover:bg-indigo-700"
         >
           Book Now
         </button>

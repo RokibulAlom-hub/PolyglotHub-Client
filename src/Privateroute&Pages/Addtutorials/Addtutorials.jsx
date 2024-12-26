@@ -29,8 +29,8 @@ const Addtutorials = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen dark:bg-gray-700 dark:text-gray-100 bg-gray-100">
-      <div className="w-full max-w-lg p-8 bg-white dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-md">
+    <div className="flex items-center justify-center  dark:bg-gray-700 dark:text-gray-100 bg-gray-100">
+      <div className="w-full max-w-lg  my-6 border-blue-400 border  p-8 bg-white dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center mb-6">Add Tutorial</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -101,7 +101,7 @@ const Addtutorials = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700"
+            className="w-full px-4 py-2 font-medium text-white bg-pink-400 rounded-lg shadow-sm"
           >
             Submit
           </button>

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyBookedTutors = () => {
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [booked, setBooked] = useState([]);
   useEffect(() => {
@@ -14,9 +16,10 @@ const MyBookedTutors = () => {
   // Get booking list from the database
   const getBookingList = async () => {
     try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/my-bookings?email=${user?.email}`
-      );
+      // const { data } = await axios.get(
+      //   `${import.meta.env.VITE_API_URL}/my-bookings?email=${user?.email}`
+      // );
+      const { data } = await axiosSecure.get(`/my-bookings?email=${user?.email}`)
       setBooked(data);
     } catch (error) {
       console.error("Error getting data:", error);

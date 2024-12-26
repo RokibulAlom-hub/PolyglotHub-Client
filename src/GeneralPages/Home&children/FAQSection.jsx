@@ -22,7 +22,7 @@ const FAQSection = () => {
 
   return (
     <div className="flex flex-col items-center justify-center bg-gray-100">
-      <div className="w-full max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
+      <div className="w-full my-7 max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-center mb-6">Frequently Asked Questions</h2>
         <div className="join join-vertical w-full">
           {faqs.map((faq, index) => (

@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const Mytutorials = () => {
   const { user } = useAuth();
   const [alltut, setAlltut] = useState([]);
-  const axiosSecure =useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
   useEffect(() => {
     if (user?.email) {
       gettingTutorials();
@@ -15,15 +15,19 @@ const Mytutorials = () => {
   }, [user?.email]);
   const gettingTutorials = async () => {
     try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/myTutorials?email=${user?.email}`,
-        {
-          withCredentials: true,
-        }
+      // const { data } = await axios.get(
+      //   `${import.meta.env.VITE_API_URL}/myTutorials?email=${user?.email}`,
+      //   {
+      //     withCredentials: true,
+      //   }
+      // );
+
+      const { data } = await axiosSecure.get(
+        `/myTutorials?email=${user?.email}`
       );
       console.log(data);
       // axiosSecure.get(`/myTutorials?email=${user?.email}`)
-     setAlltut(data)
+      setAlltut(data);
     } catch (error) {
       console.error("Error getting data:", error);
     }
@@ -44,12 +48,12 @@ const Mytutorials = () => {
             `${import.meta.env.VITE_API_URL}/tutorials-delete/${_id}`
           );
           console.log(data);
-  
+
           // Update state after deletion
           setAlltut((prevTutorilas) =>
             prevTutorilas.filter((tutorial) => tutorial._id !== _id)
           );
-  
+
           // Show success alert
           Swal.fire({
             title: "Deleted!",
@@ -58,7 +62,7 @@ const Mytutorials = () => {
           });
         } catch (error) {
           console.error("Error deleting data:", error);
-  
+
           // Show error alert
           Swal.fire({
             title: "Error!",
@@ -69,7 +73,7 @@ const Mytutorials = () => {
       }
     });
   };
-  
+
   return (
     <div className="flex dark:bg-gray-700 dark:text-gray-100 items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full dark:bg-gray-700 dark:text-gray-100 max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
@@ -77,7 +81,6 @@ const Mytutorials = () => {
           My Added Tutorials
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-        
           {alltut.map((tut) => (
             <MytutorialsCard
               key={tut._id}

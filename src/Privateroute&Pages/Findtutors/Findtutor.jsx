@@ -22,8 +22,8 @@ const Findtutor = () => {
   console.log(search);
   
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <div className="flex items-center  dark:bg-gray-700 dark:text-gray-100 justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-6xl my-8  dark:bg-gray-700 dark:text-gray-100 border border-blue-400 p-8 space-y-8 bg-white rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-center mb-6">Find Tutors</h2>
         <form>
           <div className="join">
@@ -35,9 +35,9 @@ const Findtutor = () => {
               type="text"
               name="search"
               placeholder="Enter Job Title"
-              className="input  join-item"
+              className="input border border-pink-400 join-item"
             />
-            <button className="btn bg-blue-300 join-item">Search</button>
+            <button className="btn bg-pink-300 join-item">Search</button>
           </div>
         </form>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
