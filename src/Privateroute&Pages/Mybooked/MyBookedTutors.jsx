@@ -34,11 +34,11 @@ const MyBookedTutors = () => {
         `${import.meta.env.VITE_API_URL}/update/review/${_id}`
       );
 
-      // Find the updated tutor in the state and update the UI
+      // Find the updated tutor in the state and upda
       setBooked((prevBooked) =>
         prevBooked.map((tutor) =>
           tutor._id === _id
-            ? { ...tutor, review: tutor.review + 1 } // Increment locally to reflect immediately
+            ? { ...tutor, review: tutor.review + 1 }
             : tutor
         )
       );

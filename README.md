@@ -7,7 +7,7 @@ The frontend of PolyglotHub is a user-centric platform designed for interactive 
 
 ## **Live URL**
 [PolyglotHub Frontend](#)  
-(*Replace `#` with your live website URL*)
+(https://polyglothub-54ecc.web.app/)
 
 ---
 
@@ -39,7 +39,4 @@ The frontend of PolyglotHub is a user-centric platform designed for interactive 
 ### Prerequisites
 - **Node.js** installed on your system.
 
-### Installation
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/your-repo/polyglothub-frontend.git
+

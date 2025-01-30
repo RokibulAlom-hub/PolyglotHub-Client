@@ -47,7 +47,7 @@ const TutorDetails = () => {
       );
       // console.log(data);
       SweetSuccess();
-      navigate("/mybookedtutors");
+      navigate("/findtutor");
     } catch (error) {
       // console.error("Error getting data:", error);
       SweetError();
