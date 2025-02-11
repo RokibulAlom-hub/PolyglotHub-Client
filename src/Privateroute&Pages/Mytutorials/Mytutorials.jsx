@@ -4,9 +4,11 @@ import useAuth from "../../hooks/useAuth";
 import MytutorialsCard from "./MytutorialsCard";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import Loader from "../../Components/Loader/Loader";
 const Mytutorials = () => {
   const { user } = useAuth();
   const [alltut, setAlltut] = useState([]);
+  const [loading, setLoading] = useState(false);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
     if (user?.email) {
@@ -21,7 +23,7 @@ const Mytutorials = () => {
       //     withCredentials: true,
       //   }
       // );
-
+      setLoading(true);
       const { data } = await axiosSecure.get(
         `/myTutorials?email=${user?.email}`
       );
@@ -30,6 +32,8 @@ const Mytutorials = () => {
       setAlltut(data);
     } catch (error) {
       // console.error("Error getting data:", error);
+    } finally {
+      setLoading(false);
     }
   };
   const handleDelete = (_id) => {
@@ -80,15 +84,19 @@ const Mytutorials = () => {
         <h2 className="text-3xl font-bold text-center mb-6">
           My Added Tutorials
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-          {alltut.map((tut) => (
-            <MytutorialsCard
-              key={tut._id}
-              handleDelete={handleDelete}
-              tutorials={tut}
-            ></MytutorialsCard>
-          ))}
-        </div>
+        {loading ? (
+          <Loader></Loader>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            {alltut.map((tut) => (
+              <MytutorialsCard
+                key={tut._id}
+                handleDelete={handleDelete}
+                tutorials={tut}
+              ></MytutorialsCard>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

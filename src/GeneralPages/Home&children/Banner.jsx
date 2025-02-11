@@ -16,7 +16,7 @@ const Banner = () => {
             best language tutor
           </h1>
           <div className="mt-8">
-            <Link className="px-6 py-3 bg-accent text-white font-semibold rounded-lg  ">
+            <Link to="/register" className="px-6 py-3 bg-accent text-white font-semibold rounded-lg  ">
               Get Started
             </Link>
           </div>
