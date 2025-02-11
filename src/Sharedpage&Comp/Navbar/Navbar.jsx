@@ -20,10 +20,10 @@ const Navbar = () => {
 
   return (
     <div className=" bg-secondary sticky top-0 z-50 dark:bg-gray-700 ">
-      <div className="navbar w-11/12 mx-auto  text-black ">
+      <div className="navbar py-2 w-11/12 mx-auto  text-black ">
       {/* navbar start */}
         <div className="navbar-start">
-          <div className="dropdown bg-blue-400 dark:bg-gray-700 dark:text-gray-100">
+          <div className="dropdown bg-accent dark:bg-gray-700 dark:text-gray-100">
             {/* this is dropdown  */}
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="p-2 md:font-bold hidden md:block md:text-3xl "
+            className=" md:font-bold hidden md:block md:text-3xl "
           >
             PolyglotHub
           </Link>
@@ -127,12 +127,12 @@ const Navbar = () => {
           </div>
         </div>
         {/* navabr end contents */}
-        <div className="navbar-end space-x-2">
+        <div className="navbar-end">
           {user ? (
             <div className="flex justify-between items-center">
               <div>
                 <Link
-                  className="p-1 border font-semibold text-black rounded-md bg-primary md:btn-md"
+                  className="p-1 mr-1  border font-semibold text-black rounded-md bg-primary md:btn-md"
                   to="/login"
                   onClick={handleLogout}
                 >
@@ -164,7 +164,7 @@ const Navbar = () => {
           ) : (
             <div>
               <Link
-                className="btn-sm p-1 border font-bold text-black rounded-md bg-gradient-to-r from-pink-50 to-purple-100 md:btn-md"
+                className="btn-sm p-1 border font-bold text-black rounded-md bg-primary md:btn-md"
                 to="/login"
               >
                 Login

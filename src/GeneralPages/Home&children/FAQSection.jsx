@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Headers from '../../Components/Heading/Headers';
+import Button from '../../Components/Buttons/Button';
 
 const FAQSection = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [indexTrue, setIndexTrue] = useState(false);
   
   const faqs = [
     {
@@ -24,12 +25,12 @@ const FAQSection = () => {
   ];
 
   const toggleFAQ = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    setIndexTrue(indexTrue === index ? false : index);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-teal-300 to-blue-400 dark:from-teal-700 dark:to-blue-900 py-10">
-      <div className="w-full my-7 max-w-4xl p-8 space-y-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+    <div className="flex flex-col items-center justify-center dark:from-teal-700 dark:to-blue-900">
+      <div className="w-full max-w-4xl px-4 py-2  bg-white dark:bg-gray-800 rounded-xl shadow-lg">
         <Headers headtext="Frequently Asked Question"></Headers>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
@@ -39,9 +40,9 @@ const FAQSection = () => {
                 onClick={() => toggleFAQ(index)}
               >
                 <span>{faq.question}</span>
-                <span className="text-teal-600 dark:text-teal-300">{activeIndex === index ? '−' : '+'}</span>
+                <span className="text-accent">{indexTrue === index ? '−' : '+'}</span>
               </div>
-              {activeIndex === index && (
+              {indexTrue === index && (
                 <div className="pt-4 text-gray-700 dark:text-gray-300 text-lg">
                   <p>{faq.answer}</p>
                 </div>
@@ -49,9 +50,6 @@ const FAQSection = () => {
             </div>
           ))}
         </div>
-        <button className="mt-6 px-6 py-3 font-medium text-white bg-teal-500 rounded-lg shadow-lg hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-700 transition duration-300">
-          View all
-        </button>
       </div>
     </div>
   );

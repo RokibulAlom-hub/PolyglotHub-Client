@@ -26,14 +26,14 @@ const Categorys = () => {
 
   return (
     <div className="flex items-center justify-center dark:bg-gray-700 dark:text-gray-100">
-      <div className="w-full  bg-orange-50 max-w-6xl border-blue-400 border my-7 p-8 space-y-4 dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-md">
-       <Headers headtext="Language"></Headers>
+      <div className="w-full space-y-4 dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-md">
+       <Headers headtext="Language You Can Learn"></Headers>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {languages.map((language) => (
             <Link
               to={`find/tutor/${language.language}`}
               key={language.id}
-              className="p-4 flex flex-row items-center justify-between border border-pink-400 bg-gradient-to-r from-pink-50 to-purple-100 hover:from-purple-100 hover:to-pink-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100 rounded-lg shadow-sm text-center transform transition-transform duration-300 hover:scale-105"
+              className="p-4 flex flex-row items-center justify-between border  hover:scale-105"
             >
               <div>
                 <h3 className="text-xl font-bold text-gray-800">
