@@ -1,42 +1,26 @@
 import React from "react";
-import bgimag from "../../assets/10251767.jpg";
+import bgimag from "../../assets/world.jpg";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
-    <div className="bg-orange-400 dark:bg-gray-700 dark:text-gray-100">
-      <div className="flex flex-col md:flex-row items-center w-11/12 mx-auto md:min-h-screen px-4">
-        <motion.div
-          className="text-left py-4"
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <motion.h1
-            className="text-3xl md:text-5xl font-bold text-white mb-6"
-            animate={{ x: [0, -10, 0] }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-          >
-            Learn faster with your best language tutor
-          </motion.h1>
-          <Link className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out ">
-            Get Started
-          </Link>
-        </motion.div>
-        <motion.div
-          className=""
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <img src={bgimag} className="rounded-lg shadow-lg" alt="Banner" />
-        </motion.div>
+    <div className="text-white dark:bg-gray-700 dark:text-gray-100 ">
+      <div
+        style={{ backgroundImage: `url(${bgimag})` }}
+        className="min-h-screen relative bg-cover flex justify-center  bg-center px-4"
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className=" relative z-10 py-4 flex flex-col justify-center items-center">
+          <h1 className="text-3xl text-center uppercase  md:text-5xl font-bold">
+            Learn faster with your <br />
+            best language tutor
+          </h1>
+          <div className="mt-8">
+            <Link className="px-6 py-3 bg-accent text-white font-semibold rounded-lg  ">
+              Get Started
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

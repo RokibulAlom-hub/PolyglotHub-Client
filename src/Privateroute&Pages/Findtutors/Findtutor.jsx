@@ -19,13 +19,13 @@ const Findtutor = () => {
       // console.error("Error getting data:", error);
     }
   };
-  // console.log(search);
   
   return (
     <div className="flex items-center  dark:bg-gray-700 dark:text-gray-100 justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-6xl my-8  dark:bg-gray-700 dark:text-gray-100 border border-blue-400 p-8 space-y-8 bg-white rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-center mb-6">Find Tutors</h2>
         <form>
+          {/* this is for searching by tittle  */}
           <div className="join">
             <input 
              onChange={(e) => setSearch(e.target.value)}
@@ -40,6 +40,14 @@ const Findtutor = () => {
             <button className="btn bg-pink-300 join-item">Search</button>
           </div>
         </form>
+          {/* and this is for sorting by price  */}
+          {/* <div>
+            <select onChange={(e) => setSort(e.target.value)} value={sort}>
+              <option value=""> sort by price </option>
+              <option value="asc"> Ascending  Order</option>
+              <option value="des"> Descending Order </option>
+            </select>
+          </div> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Tutor Card Example */}
           {allTutor.map((tutor) => (

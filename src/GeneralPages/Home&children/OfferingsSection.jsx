@@ -1,10 +1,11 @@
 import React from 'react';
+import Headers from '../../Components/Heading/Headers';
 
 const OfferingsSection = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-700 dark:text-gray-100">
       <div className="w-full my-7 max-w-6xl p-8 space-y-8 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-6">Explore PolyglotHub</h2>
+      <Headers headtext="Explore"></Headers>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
           {/* 1-on-1 Lessons */}

@@ -17,6 +17,9 @@ const FindtutorCard = ({ tutor }) => {
           <span className="font-semibold">Language:</span> {language}
         </p>
         <p className="text-gray-700 dark:text-gray-100 mb-2">
+          <span className="font-semibold">Price:</span> {price} $
+        </p>
+        <p className="text-gray-700 dark:text-gray-100 mb-2">
           <span className="font-semibold">Review:</span> {review}
         </p>
         <Link

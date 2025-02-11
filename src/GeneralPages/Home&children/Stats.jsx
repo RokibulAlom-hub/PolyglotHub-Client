@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaChalkboardTeacher, FaStar, FaLanguage, FaUsers } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import Headers from '../../Components/Heading/Headers';
 
 const Stats = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-700 dark:text-gray-100">
       <div className="w-full border border-orange-50 rounded max-w-6xl py-8 px-4">
-        <h2 className="text-3xl font-bold  text-blue-600 dark:text-pink-400 text-center mb-6">Our Stats</h2>
+        <Headers headtext="Data "></Headers>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Experienced Tutors */}

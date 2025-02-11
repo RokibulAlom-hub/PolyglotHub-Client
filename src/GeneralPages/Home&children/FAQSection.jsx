@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Headers from '../../Components/Heading/Headers';
 
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -29,7 +30,7 @@ const FAQSection = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-gradient-to-r from-teal-300 to-blue-400 dark:from-teal-700 dark:to-blue-900 py-10">
       <div className="w-full my-7 max-w-4xl p-8 space-y-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-        <h2 className="text-4xl font-extrabold text-center text-teal-600 dark:text-teal-300 mb-6">Frequently Asked Questions</h2>
+        <Headers headtext="Frequently Asked Question"></Headers>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div key={index} className="border-b-2 dark:border-gray-600 pb-4">

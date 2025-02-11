@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { ThemeContext } from "../../Components/Themecontext/ThemeProvider";
 import { IoMoon, IoSunny } from "react-icons/io5";
+import "./Nabvar.css";
 const Navbar = () => {
   const { user, userLogout } = useAuth();
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -18,10 +19,12 @@ const Navbar = () => {
   // console.log(user);
 
   return (
-    <div className="bg-orange-400  dark:bg-gray-700 dark:text-gray-100 ">
-      <div className="navbar  w-11/12 mx-auto  text-gray-100 ">
+    <div className=" bg-secondary sticky top-0 z-50 dark:bg-gray-700 ">
+      <div className="navbar w-11/12 mx-auto  text-black ">
+      {/* navbar start */}
         <div className="navbar-start">
           <div className="dropdown bg-blue-400 dark:bg-gray-700 dark:text-gray-100">
+            {/* this is dropdown  */}
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -40,10 +43,14 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu bg-blue-400 dark:bg-gray-700 dark:text-gray-100 menu-sm space-y-2 dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu bg-black dark:text-gray-100 menu-sm space-y-2 dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/findtutor">Findtutors</NavLink>
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/findtutor">Findtutors</NavLink>
+              </li>
               {user ? (
                 <details>
                   <summary>MyLinks</summary>
@@ -71,6 +78,7 @@ const Navbar = () => {
             PolyglotHub
           </Link>
         </div>
+        {/* theme changer button  */}
         <button
           onClick={toggleTheme}
           className="px-2 mr-1 py-1 rounded border border-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
@@ -85,6 +93,7 @@ const Navbar = () => {
             </div>
           )}
         </button>
+        {/* navbar center content */}
         <div className="navbar-center hidden lg:flex">
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
@@ -117,12 +126,13 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        {/* navabr end contents */}
         <div className="navbar-end space-x-2">
           {user ? (
             <div className="flex justify-between items-center">
               <div>
                 <Link
-                  className="btn-sm p-1 border font-bold text-black rounded-md bg-gradient-to-r from-pink-50 to-purple-100 md:btn-md"
+                  className="p-1 border font-semibold text-black rounded-md bg-primary md:btn-md"
                   to="/login"
                   onClick={handleLogout}
                 >

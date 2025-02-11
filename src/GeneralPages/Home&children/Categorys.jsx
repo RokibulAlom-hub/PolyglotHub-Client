@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Headers from "../../Components/Heading/Headers";
 
 const Categorys = () => {
   const [languages, setLanguages] = useState([]);
@@ -26,9 +27,7 @@ const Categorys = () => {
   return (
     <div className="flex items-center justify-center dark:bg-gray-700 dark:text-gray-100">
       <div className="w-full  bg-orange-50 max-w-6xl border-blue-400 border my-7 p-8 space-y-4 dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-6 text-blue-600 dark:text-pink-400">
-          Languages
-        </h2>
+       <Headers headtext="Language"></Headers>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {languages.map((language) => (
             <Link
