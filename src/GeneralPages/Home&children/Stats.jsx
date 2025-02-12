@@ -12,7 +12,7 @@ const Stats = () => {
           
           {/* Experienced Tutors */}
           <motion.div 
-            className="p-6 bg-white  rounded-lg shadow-md text-center border border-accent"
+            className="p-6 bg-white dark:bg-primary rounded-lg shadow-md text-center border border-accent"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -25,7 +25,7 @@ const Stats = () => {
 
           {/* 5-Star Reviews */}
           <motion.div 
-            className="p-6 bg-white 0 rounded-lg shadow-md text-center border border-accent"
+            className="p-6 bg-white dark:bg-primary rounded-lg shadow-md text-center border border-accent"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2 }}
@@ -38,7 +38,7 @@ const Stats = () => {
 
           {/* Languages */}
           <motion.div 
-            className="p-6 bg-white  rounded-lg shadow-md text-center border border-accent"
+            className="p-6 bg-white dark:bg-primary rounded-lg shadow-md text-center border border-accent"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, delay: 0.4 }}
@@ -51,7 +51,7 @@ const Stats = () => {
 
           {/* Users */}
           <motion.div 
-            className="p-6 bg-white  rounded-lg shadow-md text-center border border-accent"
+            className="p-6 bg-white dark:bg-primary rounded-lg shadow-md text-center border border-accent"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.6, delay: 0.6 }}

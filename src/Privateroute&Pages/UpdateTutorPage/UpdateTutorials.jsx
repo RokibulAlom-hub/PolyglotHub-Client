@@ -3,9 +3,10 @@ import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
+import Headers from "../../Components/Heading/Headers";
 
 const UpdateTutorials = () => {
-  const navigate =useNavigate()
+  const navigate = useNavigate();
   // const {user} = useAuth();
   const loadData = useLoaderData({});
   const { _id, name, email, Image, language, price, description, review } =
@@ -24,21 +25,18 @@ const UpdateTutorials = () => {
       );
       // console.log(data);
       SweetSuccess();
-      navigate('/mytutorials')
+      navigate("/mytutorials");
     } catch (error) {
       // console.error("Error creating data:", error);
     }
     // e.target.reset();
   };
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center mb-6">Update Tutorial</h2>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="w-full max-w-lg p-8 border dark:border-gray-600 my-3 rounded-lg shadow-md">
+        <Headers headtext="Update Tutorials"></Headers>
         <form onSubmit={handleUpdate} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
             <input
               type="text"
               name="name"
@@ -48,9 +46,6 @@ const UpdateTutorials = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
             <input
               type="email"
               name="email"
@@ -60,52 +55,42 @@ const UpdateTutorials = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Image URL
-            </label>
             <input
               type="url"
               name="image"
+              placeholder="ImageURl"
               className="w-full px-3 py-2 border rounded-lg shadow-sm"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Language
-            </label>
             <input
               type="text"
               name="language"
+              placeholder="Language"
               className="w-full px-3 py-2 border rounded-lg shadow-sm"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Price
-            </label>
             <input
               type="number"
               name="price"
+              placeholder="Price"
               className="w-full px-3 py-2 border rounded-lg shadow-sm"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Description
-            </label>
+            
             <textarea
               name="description"
               className="w-full px-3 py-2 border rounded-lg shadow-sm"
+              placeholder="Description"
               required
             ></textarea>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Reveiw
-            </label>
             <input
               disabled
               defaultValue={review}
@@ -114,7 +99,7 @@ const UpdateTutorials = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700"
+            className="w-full px-4 py-2 font-medium bg-secondary  text-black rounded-lg shadow-sm hover:bg-accent hover:text-white"
           >
             Submit
           </button>

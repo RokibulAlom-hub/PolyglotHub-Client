@@ -28,7 +28,8 @@ const Addtutorials = () => {
     }
     e.target.reset();
   };
-
+  console.log(user);
+  
   return (
     <div className="flex items-center justify-center ">
       <div className="w-full max-w-lg border dark:border-gray-600 my-6  p-8 rounded-lg shadow-md">

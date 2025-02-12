@@ -43,7 +43,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu bg-black  menu-sm space-y-2 dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu bg-primary dark:bg-black  menu-sm space-y-2 dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
                 <NavLink to="/">Home</NavLink>

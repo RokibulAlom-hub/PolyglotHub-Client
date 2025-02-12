@@ -54,30 +54,30 @@ const TutorDetails = () => {
     }
   };
   return (
-    <div className="flex items-center  dark:bg-gray-700 dark:text-gray-100 justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-4xl  my-6 border border-pink-300  p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <div className="flex items-center  dark:text-white justify-center min-h-screen ">
+      <div className="w-full max-w-4xl  my-6 border dark:border-gray-600  p-8 space-y-8  rounded-lg shadow-md">
         <img
           src={tutor.image}
           alt={tutor.language}
           className="w-full h-80 object-cover rounded-lg mb-4"
         />
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">{tutor.name}</h2>
-        <p className="text-lg text-gray-700 mb-4">
+        <h2 className="text-3xl font-bold  mb-4">{tutor.name}</h2>
+        <p className="text-lg mb-4">
           <span className="font-semibold">Language:</span> {tutor.language}
         </p>
-        <p className="text-lg text-gray-700 mb-4">
+        <p className="text-lg mb-4">
           <span className="font-semibold">Description:</span>{" "}
           {tutor.description}
         </p>
-        <p className="text-lg text-gray-700 mb-4">
+        <p className="text-lg mb-4">
           <span className="font-semibold">Price:</span> ${tutor.price}
         </p>
-        <p className="text-lg text-gray-700 mb-6">
+        <p className="text-lg mb-6">
           <span className="font-semibold">Review:</span> {tutor.review}
         </p>
         <button
           onClick={handleBooked}
-          className="w-full px-4 py-2 font-medium text-white bg-pink-600 rounded-lg shadow-sm hover:bg-indigo-700"
+          className="w-full px-4 py-2 bg-secondary font-medium text-black rounded-lg shadow-sm hover:bg-accent hover:text-white"
         >
           Book Now
         </button>

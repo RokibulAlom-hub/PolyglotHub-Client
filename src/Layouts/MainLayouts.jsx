@@ -5,7 +5,7 @@ import Footer from "../Sharedpage&Comp/Footer/Footer";
 
 const MainLayouts = () => {
   return (
-    <div>
+    <div className="montserrat">
       <Navbar></Navbar>
       <div className="bg-primary text-black dark:bg-black dark:text-white">
         <Outlet></Outlet>
