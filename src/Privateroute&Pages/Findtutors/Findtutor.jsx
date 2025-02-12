@@ -27,7 +27,7 @@ const Findtutor = () => {
   };
 
   return (
-    <div className="flex items-center bg-primary  justify-center">
+    <div className="flex items-center bg-primary dark:bg-black justify-center">
       <div className="w-full max-w-6xl my-8 p-8 space-y-4  rounded-lg shadow-md">
         <Headers headtext="Find Tutors"></Headers>
         {loading ? (
@@ -47,7 +47,7 @@ const Findtutor = () => {
                   placeholder="Enter Job Title"
                   className="input border border-accent join-item"
                 />
-                <button className="btn bg-accent text-white join-item">Search</button>
+                <button className="btn bg-secondary join-item">Search</button>
               </div>
             </form>
             {/* and this is for sorting by price  */}

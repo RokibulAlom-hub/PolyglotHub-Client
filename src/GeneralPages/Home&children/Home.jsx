@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <Banner />
-      <div className="w-11/12 mx-auto space-y-6 md:space-y-20 mt-12 pb-10">
+      <div className="w-11/12 mx-auto space-y-6 md:space-y-20 mt-12 pb-10 dark:bg-black dark:text-white">
         <Stats></Stats>
         <Categorys></Categorys>
         <OfferingsSection></OfferingsSection>

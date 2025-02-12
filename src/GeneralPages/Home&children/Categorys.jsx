@@ -43,7 +43,7 @@ const Categorys = () => {
               >
                 {/* heading */}
                 <div>
-                  <h3 className="text-xl font-bold ">
+                  <h3 className="text-xl font-bold dark:text-secondary">
                     {language.language}
                   </h3>
                 </div>

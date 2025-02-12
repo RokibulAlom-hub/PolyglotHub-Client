@@ -5,6 +5,7 @@ import MytutorialsCard from "./MytutorialsCard";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import Loader from "../../Components/Loader/Loader";
+import Headers from "../../Components/Heading/Headers";
 const Mytutorials = () => {
   const { user } = useAuth();
   const [alltut, setAlltut] = useState([]);
@@ -79,11 +80,9 @@ const Mytutorials = () => {
   };
 
   return (
-    <div className="flex dark:bg-gray-700 dark:text-gray-100 items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full dark:bg-gray-700 dark:text-gray-100 max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-6">
-          My Added Tutorials
-        </h2>
+    <div className="flex  items-center justify-center min-h-screen">
+      <div className="w-full dark:text-white max-w-6xl p-8 space-y-8 rounded-lg shadow-md">
+        <Headers headtext="My Tutorials"></Headers>
         {loading ? (
           <Loader></Loader>
         ) : (

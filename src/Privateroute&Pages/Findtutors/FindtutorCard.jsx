@@ -7,7 +7,7 @@ const FindtutorCard = ({ tutor }) => {
 
   return (
     <div>
-      <div className="p-2 pb-4 rounded-lg  shadow-lg space-y-2 hover:shadow-optional hover:scale-105  ease-in-out duration-500">
+      <div className="p-2 pb-4 border dark:border-gray-600  rounded-lg  shadow-xl space-y-2 hover:shadow-optional hover:scale-105  ease-in-out duration-500">
         <img
           src={image}
           alt={language}

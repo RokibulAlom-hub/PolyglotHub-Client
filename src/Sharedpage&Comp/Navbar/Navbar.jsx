@@ -19,11 +19,11 @@ const Navbar = () => {
   // console.log(user);
 
   return (
-    <div className=" bg-secondary sticky top-0 z-50 dark:bg-gray-700 ">
-      <div className="navbar py-2 w-11/12 mx-auto  text-black ">
+    <div className=" bg-secondary dark:bg-black sticky top-0 z-50  ">
+      <div className="navbar py-2 w-11/12 mx-auto border-b dark:text-white  text-black ">
       {/* navbar start */}
         <div className="navbar-start">
-          <div className="dropdown bg-accent dark:bg-gray-700 dark:text-gray-100">
+          <div className="dropdown bg-accent ">
             {/* this is dropdown  */}
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -43,7 +43,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu bg-black dark:text-gray-100 menu-sm space-y-2 dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu bg-black  menu-sm space-y-2 dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -54,7 +54,7 @@ const Navbar = () => {
               {user ? (
                 <details>
                   <summary>MyLinks</summary>
-                  <ul className="bg-blue-400  dark:bg-gray-700 rounded-t-none p-2">
+                  <ul className="bg-blue-400   rounded-t-none p-2">
                     <li>
                       <NavLink to="/addtutorials">AddTutorials</NavLink>
                     </li>
@@ -81,7 +81,7 @@ const Navbar = () => {
         {/* theme changer button  */}
         <button
           onClick={toggleTheme}
-          className="px-2 mr-1 py-1 rounded border border-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+          className="px-2 mr-1 py-1 rounded border border-white  text-gray-900 "
         >
           {theme === "dark" ? (
             <div className="text-yellow-400">
@@ -107,7 +107,7 @@ const Navbar = () => {
                 {user ? (
                   <details>
                     <summary>MyLinks</summary>
-                    <ul className="bg-gray-700 dark:bg-orange-400 rounded-t-none p-2">
+                    <ul className=" dark:bg-secondary dark:text-black rounded-t-none p-2">
                       <li>
                         <NavLink to="/addtutorials">AddTutorials</NavLink>
                       </li>

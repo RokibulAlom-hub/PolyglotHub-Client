@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="text-white dark:bg-gray-700 dark:text-gray-100 ">
+    <div className="text-white ">
       <div
         style={{ backgroundImage: `url(${bgimag})` }}
         className="min-h-screen relative bg-cover flex justify-center  bg-center px-4"

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
 import SweetError from "../../Components/Sweetalerts/SweetError";
+import Headers from "../../Components/Heading/Headers";
 
 const Addtutorials = () => {
   const navigate = useNavigate();
@@ -29,79 +30,66 @@ const Addtutorials = () => {
   };
 
   return (
-    <div className="flex items-center justify-center  dark:bg-gray-700 dark:text-gray-100 bg-gray-100">
-      <div className="w-full max-w-lg  my-6 border-blue-400 border  p-8 bg-white dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center mb-6">Add Tutorial</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="flex items-center justify-center ">
+      <div className="w-full max-w-lg border dark:border-gray-600 my-6  p-8 rounded-lg shadow-md">
+        <Headers headtext="Add Tutorial"></Headers>
+        <form onSubmit={handleSubmit} className="space-y-4 dark:text-black">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Name
-            </label>
             <input
               type="text"
               name="name"
               defaultValue={user?.displayName}
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              className="w-full px-3 py-2  rounded-lg shadow-sm"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Email
-            </label>
             <input
               type="email"
               name="email"
               defaultValue={user?.email}
               readOnly
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              className="w-full px-3 py-2  rounded-lg shadow-sm"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Image URL
-            </label>
             <input
               type="url"
               name="image"
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              className="w-full px-3 py-2  rounded-lg shadow-sm"
+              placeholder="Image URL"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Language
-            </label>
+            
             <input
               type="text"
               name="language"
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              placeholder="Language"
+              className="w-full px-3 py-2  rounded-lg shadow-sm"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Price
-            </label>
             <input
               type="number"
               name="price"
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              placeholder=" Price"
+              className="w-full px-3 py-2  rounded-lg shadow-sm"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Description
-            </label>
             <textarea
               name="description"
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              placeholder="Description"
+              className="w-full px-3 py-2  rounded-lg shadow-sm"
               required
             ></textarea>
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 font-medium text-white bg-pink-400 rounded-lg shadow-sm"
+            className="w-full  py-2  bg-secondary rounded-lg shadow-sm hover:bg-accent hover:text-white duration-500"
           >
             Submit
           </button>

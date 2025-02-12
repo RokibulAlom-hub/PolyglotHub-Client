@@ -29,21 +29,21 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center dark:from-teal-700 dark:to-blue-900">
-      <div className="w-full max-w-4xl px-4 py-2  bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+    <div className="flex flex-col items-center justify-center ">
         <Headers headtext="Frequently Asked Question"></Headers>
+      <div className="w-full max-w-4xl px-4 py-4  bg-white  rounded-xl shadow-lg">
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b-2 dark:border-gray-600 pb-4">
+            <div key={index} className="border-b-2  pb-4">
               <div
-                className="cursor-pointer flex justify-between items-center text-xl font-semibold text-gray-800 dark:text-gray-100"
+                className="cursor-pointer flex justify-between items-center text-xl font-semibold text-gray-800"
                 onClick={() => toggleFAQ(index)}
               >
                 <span>{faq.question}</span>
                 <span className="text-accent">{indexTrue === index ? '−' : '+'}</span>
               </div>
               {indexTrue === index && (
-                <div className="pt-4 text-gray-700 dark:text-gray-300 text-lg">
+                <div className="pt-4 text-gray-700  text-lg">
                   <p>{faq.answer}</p>
                 </div>
               )}
