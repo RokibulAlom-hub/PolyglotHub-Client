@@ -28,22 +28,22 @@ const Categorys = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center dark:bg-gray-700 dark:text-gray-100">
-      <div className="w-full space-y-4 dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-md">
+    <div className="flex items-center justify-center">
+      <div className="w-full space-y-4 pb-3 rounded-lg shadow-md">
         <Headers headtext="Language You Can Learn"></Headers>
         {loading ? (
           <Loader></Loader>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {languages.map((language) => (
               <Link
                 to={`find/tutor/${language.language}`}
                 key={language.id}
-                className="p-4 flex flex-row items-center justify-between border  hover:scale-105 hover:shadow-accent delay-100 shadow-2xl"
+                className="p-4 flex flex-row items-center justify-between border  hover:scale-105 hover:shadow-accent duration-500 ease-in-out shadow-2xl"
               >
                 {/* heading */}
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800">
+                  <h3 className="text-xl font-bold ">
                     {language.language}
                   </h3>
                 </div>

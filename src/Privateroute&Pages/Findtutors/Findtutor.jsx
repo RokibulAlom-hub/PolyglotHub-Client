@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import FindtutorCard from "./FindtutorCard";
 import Loader from "../../Components/Loader/Loader";
+import Headers from "../../Components/Heading/Headers";
 
 const Findtutor = () => {
   const [allTutor, setAlltutor] = useState([]);
@@ -26,9 +27,9 @@ const Findtutor = () => {
   };
 
   return (
-    <div className="flex items-center  dark:bg-gray-700 dark:text-gray-100 justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-6xl my-8  dark:bg-gray-700 dark:text-gray-100 border border-blue-400 p-8 space-y-8 bg-white rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-6">Find Tutors</h2>
+    <div className="flex items-center bg-primary  justify-center">
+      <div className="w-full max-w-6xl my-8 p-8 space-y-4  rounded-lg shadow-md">
+        <Headers headtext="Find Tutors"></Headers>
         {loading ? (
           <Loader></Loader>
         ) : (
@@ -44,9 +45,9 @@ const Findtutor = () => {
                   type="text"
                   name="search"
                   placeholder="Enter Job Title"
-                  className="input border border-pink-400 join-item"
+                  className="input border border-accent join-item"
                 />
-                <button className="btn bg-pink-300 join-item">Search</button>
+                <button className="btn bg-accent text-white join-item">Search</button>
               </div>
             </form>
             {/* and this is for sorting by price  */}
@@ -57,7 +58,7 @@ const Findtutor = () => {
               <option value="des"> Descending Order </option>
             </select>
           </div> */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {/* Tutor Card Example */}
               {allTutor.map((tutor) => (
                 <FindtutorCard key={tutor._id} tutor={tutor}></FindtutorCard>
