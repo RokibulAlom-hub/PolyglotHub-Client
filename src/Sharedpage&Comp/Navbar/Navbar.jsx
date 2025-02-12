@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <div className=" bg-secondary dark:bg-black sticky top-0 z-50  ">
-      <div className="navbar py-2 w-11/12 mx-auto border-b dark:text-white  text-black ">
+      <div className="navbar py-2 w-11/12 mx-auto dark:border-b dark:text-white  text-black ">
       {/* navbar start */}
         <div className="navbar-start">
           <div className="dropdown bg-accent ">
@@ -81,7 +81,7 @@ const Navbar = () => {
         {/* theme changer button  */}
         <button
           onClick={toggleTheme}
-          className="px-2 mr-1 py-1 rounded border border-white  text-gray-900 "
+          className="px-2 mr-1 py-1 rounded  text-gray-900 "
         >
           {theme === "dark" ? (
             <div className="text-yellow-400">
@@ -132,7 +132,7 @@ const Navbar = () => {
             <div className="flex justify-between items-center">
               <div>
                 <Link
-                  className="p-1 mr-1  border font-semibold text-black rounded-md bg-primary md:btn-md"
+                  className="p-1 mr-1 bg-accent text-white  font-semibold  rounded-md  md:btn-md"
                   to="/login"
                   onClick={handleLogout}
                 >
@@ -151,10 +151,10 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content cursor-not-allowed bg-base-100 text-black rounded z-[1] mt-3 w-20 p-2 shadow"
+                  className="menu menu-sm dropdown-content cursor-not-allowed bg-primary rounded z-[1] mt-3  shadow"
                 >
                   <li>
-                    <p className="justify-between bg-base-100 text-black">
+                    <p className="justify-between  text-black">
                       {user?.displayName}
                     </p>
                   </li>
@@ -164,7 +164,7 @@ const Navbar = () => {
           ) : (
             <div>
               <Link
-                className="btn-sm p-1 border font-bold text-black rounded-md bg-primary md:btn-md"
+                className="btn-sm p-1 b rounded-md bg-accent text-white md:btn-md"
                 to="/login"
               >
                 Login

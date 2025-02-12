@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import { FaGoogle } from "react-icons/fa"; // Import Google icon from React Icons
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import SweetSuccess from '../../Components/Sweetalerts/SweetSuccess';
-import SweetError from '../../Components/Sweetalerts/SweetError';
+import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
+import SweetError from "../../Components/Sweetalerts/SweetError";
+import Headers from "../../Components/Heading/Headers";
 
 export default function Register() {
   const navigate = useNavigate();
-  const { googlelogin, createUserByemail, updateUserData, setUser, user } = useAuth();
+  const { googlelogin, createUserByemail, updateUserData, setUser, user } =
+    useAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ export default function Register() {
           setUser({ displayName: name, photoURL: photoURL, ...user });
         });
         SweetSuccess();
-        navigate('/');
+        navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -37,66 +39,57 @@ export default function Register() {
   };
 
   const handleGoogleLogin = () => {
-    googlelogin()
-      .then((result) => {
-        // console.log(result);
-        navigate("/");
-      })
-      // .catch((err) => console.log(err.message));
+    googlelogin().then((result) => {
+      // console.log(result);
+      navigate("/");
+    });
+    // .catch((err) => console.log(err.message));
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-700 dark:text-gray-100">
-      <div className="w-full max-w-md  border-blue-400 border  p-8 space-y-8 bg-white dark:bg-gray-700 dark:text-gray-100 rounded shadow-md">
-        <h2 className="text-2xl font-bold text-center">Register</h2>
+    <div className="flex items-center justify-center min-h-screen  ">
+      <div className="w-full max-w-md border dark:border-gray-600 p-8 space-y-8  rounded shadow-md">
+      <Headers headtext="Register"></Headers>
         <form onSubmit={handleRegister} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Name
-            </label>
             <input
               type="text"
               name="name"
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              placeholder="Name Please"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Photo URL
-            </label>
             <input
               type="url"
               name="photo"
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              placeholder="PhotoURl"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Email
-            </label>
             <input
               type="email"
               name="email"
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              placeholder="Email Address"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
-              Password
-            </label>
             <input
               type="password"
               name="password"
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              placeholder="Password"
               required
             />
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700"
+            className="w-full px-4 py-2 rounded-lg shadow-sm bg-secondary text-black  hover:bg-accent hover:scale-105 font-semibold hover:text-white duration-500 ease-in-out"
           >
             Register
           </button>
@@ -104,15 +97,15 @@ export default function Register() {
         <div className="text-center">
           <button
             onClick={handleGoogleLogin}
-            className="w-full px-4 py-2 mt-4 font-medium text-white bg-red-600 rounded-lg shadow-sm hover:bg-red-700 flex items-center justify-center"
+            className="w-full px-4 py-2 mt-4  rounded-lg shadow-sm  flex items-center justify-center bg-accent text-white hover:bg-secondary hover:scale-110 hover:text-black duration-500 ease-in-out"
           >
             <FaGoogle className="mr-2" /> Continue with Google
           </button>
         </div>
         <div className="text-center">
-          <p className="text-sm text-gray-600 dark:text-gray-100">
+          <p className="text-sm ">
             Already have an account?{" "}
-            <Link to="/login" className="text-indigo-600 hover:text-indigo-800">
+            <Link to="/login" className="text-accent underline">
               Login
             </Link>
           </p>

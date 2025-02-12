@@ -1,29 +1,30 @@
-import React from 'react';
-import { FaGoogle } from 'react-icons/fa';  // Import Google icon from React Icons
-import { Link, useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
-import SweetSuccess from '../../Components/Sweetalerts/SweetSuccess';
-import SweetError from '../../Components/Sweetalerts/SweetError';
+import React from "react";
+import { FaGoogle } from "react-icons/fa"; // Import Google icon from React Icons
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
+import SweetError from "../../Components/Sweetalerts/SweetError";
+import Headers from "../../Components/Heading/Headers";
 
 export default function Login() {
   const navigate = useNavigate();
   const { googlelogin, userLogin } = useAuth();
 
-  const handleLogin = e => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
     const form = new FormData(e.target);
-    const email = form.get('email');
-    const password = form.get('password');
+    const email = form.get("email");
+    const password = form.get("password");
 
     // console.log({ email, password });
     userLogin(email, password)
-      .then(result => {
+      .then((result) => {
         // console.log("user logged in", result.user);
         SweetSuccess();
-        navigate('/');
+        navigate("/");
       })
-      .catch(error => {
+      .catch((error) => {
         const errorMessage = error.message;
         // console.log(errorMessage);
         SweetError();
@@ -32,55 +33,64 @@ export default function Login() {
 
   const handleGoogleLogin = () => {
     googlelogin()
-      .then(result => {
+      .then((result) => {
         // console.log(result);
         SweetSuccess();
-        navigate('/');
+        navigate("/");
       })
-      .catch(err => {
+      .catch((err) => {
         // console.log(err.message);
         SweetError();
       });
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-700 dark:text-gray-100">
-      <div className="w-full max-w-md border-blue-400 border p-8 space-y-8 bg-white dark:bg-gray-700 dark:text-gray-100 rounded shadow-md">
-        <h2 className="text-2xl font-bold text-center">Login</h2>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="w-full max-w-md border dark:border-gray-600 p-8 space-y-8  rounded shadow-md">
+        <Headers headtext="Login"></Headers>
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">Email</label>
-            <input 
-              type="email" 
-              name="email" 
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
-              required 
+            <input
+              type="email"
+              name="email"
+              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              placeholder="Email Address"
+              required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">Password</label>
-            <input 
-              type="password" 
-              name="password" 
-              className="w-full px-3 py-2 border dark:bg-gray-700 dark:text-gray-100 rounded-lg shadow-sm"
-              required 
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              required
             />
           </div>
-          <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-700">
+          <button
+            type="submit"
+            className="w-full px-4 py-2 rounded-lg shadow-sm bg-secondary text-black  hover:bg-accent hover:scale-105 font-semibold hover:text-white duration-500 ease-in-out"
+          >
             Login
           </button>
         </form>
         <div className="text-center">
-          <button 
-            onClick={handleGoogleLogin} 
-            className="w-full px-4 py-2 mt-4 font-medium text-white bg-red-600 rounded-lg shadow-sm hover:bg-red-700 flex items-center justify-center"
+          <button
+            onClick={handleGoogleLogin}
+            className="w-full px-4 py-2 mt-4  rounded-lg shadow-sm  flex items-center justify-center bg-accent text-white hover:bg-secondary hover:scale-110 hover:text-black duration-500 ease-in-out"
           >
             <FaGoogle className="mr-2" /> Continue with Google
           </button>
         </div>
         <div className="text-center">
-          <p className="text-sm text-gray-600 dark:text-gray-100">
-            Don't have an account? <Link to="/register" className="text-indigo-600 hover:text-indigo-800">Register</Link>
+          <p className="text-sm  ">
+            Don't have an account?{" "}
+            <Link
+              to="/register"
+              className="text-accent underline"
+            >
+              Register
+            </Link>
           </p>
         </div>
       </div>
