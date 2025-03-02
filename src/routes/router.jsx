@@ -12,6 +12,7 @@ import TutorDetails from "../Privateroute&Pages/Findtutors/TutorDetails";
 import MyBookedTutors from "../Privateroute&Pages/Mybooked/MyBookedTutors";
 import TutorCategory from "../GeneralPages/Find-tutor-categeory/TutorCategory";
 import UpdateTutorials from "../Privateroute&Pages/UpdateTutorPage/UpdateTutorials";
+import Contact from "../GeneralPages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       // this all are private route pages
       {

@@ -96,12 +96,15 @@ const Navbar = () => {
         {/* navbar center content */}
         <div className="navbar-center hidden lg:flex">
           <div className="flex-none">
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal ">
               <li>
                 <NavLink to="/">Home</NavLink>
               </li>
               <li>
                 <NavLink to="/findtutor">Findtutors</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact">Contact</NavLink>
               </li>
               <li>
                 {user ? (

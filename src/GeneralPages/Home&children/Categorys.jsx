@@ -39,7 +39,7 @@ const Categorys = () => {
               <Link
                 to={`find/tutor/${language.language}`}
                 key={language.id}
-                className="p-1 lg:p-4 flex flex-row items-center justify-between border  hover:scale-105 hover:shadow-accent duration-500 ease-in-out shadow-2xl"
+                className="p-1 lg:p-4 flex flex-row gap-5 items-center  justify-evenly border  hover:scale-105 hover:shadow-accent duration-500 ease-in-out shadow-2xl"
               >
                 {/* heading */}
                 <div>
