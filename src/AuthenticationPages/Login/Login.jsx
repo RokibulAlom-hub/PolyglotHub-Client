@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGoogle } from "react-icons/fa"; // Import Google icon from React Icons
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
-import SweetError from "../../Components/Sweetalerts/SweetError";
-import Headers from "../../Components/Heading/Headers";
 
+import Headers from "../../Components/Heading/Headers";
+import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
 export default function Login() {
   const navigate = useNavigate();
-  const { googlelogin, userLogin } = useAuth();
-
+  const { googlelogin, userLogin,user, setUser } = useAuth();
+  const [showSuccess , setShowsuccess] = useState(false)
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -21,31 +20,30 @@ export default function Login() {
     userLogin(email, password)
       .then((result) => {
         // console.log("user logged in", result.user);
-        SweetSuccess();
+        setShowsuccess(true)
         navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
         // console.log(errorMessage);
-        SweetError();
+        
       });
   };
 
   const handleGoogleLogin = () => {
-    googlelogin()
-      .then((result) => {
-        // console.log(result);
-        SweetSuccess();
-        navigate("/");
-      })
-      .catch((err) => {
-        // console.log(err.message);
-        SweetError();
-      });
+    googlelogin().then((result) => {
+      const gogggleInfo = result.user;
+      setUser({displayName:gogggleInfo.displayName, photoURL:gogggleInfo.photoURL,...user})
+      setShowsuccess(true)
+      // console.log(gogggleInfo);
+      navigate("/");
+    });
+    // .catch((err) => console.log(err.message));
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
+      {showSuccess && <SweetSuccess titletxt=" Logged In" subtxt="Successfull" icon="success"></SweetSuccess>}
       <div className="w-full max-w-md border dark:border-gray-600 p-8 space-y-8  rounded shadow-md">
         <Headers headtext="Login"></Headers>
         <form onSubmit={handleLogin} className="space-y-4">
@@ -85,10 +83,7 @@ export default function Login() {
         <div className="text-center">
           <p className="text-sm  ">
             Don't have an account?{" "}
-            <Link
-              to="/register"
-              className="text-accent underline"
-            >
+            <Link to="/register" className="text-accent underline">
               Register
             </Link>
           </p>

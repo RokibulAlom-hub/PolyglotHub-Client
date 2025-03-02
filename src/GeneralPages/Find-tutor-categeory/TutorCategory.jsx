@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FindtutorCard from "../../Privateroute&Pages/Findtutors/FindtutorCard";
+import Headers from "../../Components/Heading/Headers";
 
 const TutorCategory = () => {
   const {language }=useParams()
@@ -24,9 +25,9 @@ const TutorCategory = () => {
       }
   };
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-6xl p-8 space-y-8 bg-white rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-6">Find Tutors</h2>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="w-full max-w-6xl p-8 space-y-8 rounded-lg shadow-md">
+        <Headers headtext="Find Tutors"></Headers>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Tutor Card Example */}
           {allTutor.map((tutor) => (

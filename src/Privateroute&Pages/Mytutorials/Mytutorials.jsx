@@ -78,11 +78,11 @@ const Mytutorials = () => {
       }
     });
   };
-
+  
   return (
     <div className="flex  items-center justify-center min-h-screen">
       <div className="w-full dark:text-white max-w-6xl p-8 space-y-8 rounded-lg shadow-md">
-        <Headers headtext="My Tutorials"></Headers>
+        {alltut.length === 0 ? <Headers headtext="You dont added any tutorials"></Headers>: <Headers headtext="My Tutorials"></Headers>}
         {loading ? (
           <Loader></Loader>
         ) : (

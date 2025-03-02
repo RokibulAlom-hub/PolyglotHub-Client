@@ -39,7 +39,7 @@ const Categorys = () => {
               <Link
                 to={`find/tutor/${language.language}`}
                 key={language.id}
-                className="p-4 flex flex-row items-center justify-between border  hover:scale-105 hover:shadow-accent duration-500 ease-in-out shadow-2xl"
+                className="p-1 lg:p-4 flex flex-row items-center justify-between border  hover:scale-105 hover:shadow-accent duration-500 ease-in-out shadow-2xl"
               >
                 {/* heading */}
                 <div>
@@ -52,12 +52,12 @@ const Categorys = () => {
                   <img
                     src={language.logo}
                     alt={language.language}
-                    className="w-12 rounded-xl h-12 "
+                    className="w-8 rounded-xl h-8"
                   />
                 </div>
                 {/* details button */}
                 <div>
-                  <p className="text-accent">
+                  <p className="text-accent md:hidden lg:block">
                     {" "}
                     <FaArrowRightLong />{" "}
                   </p>

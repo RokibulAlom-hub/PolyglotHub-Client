@@ -16,7 +16,7 @@ const Navbar = () => {
     });
     // .catch((err) => console.log(err.message));
   };
-  // console.log(user);
+  // console.log(user?.photoURL);
 
   return (
     <div className=" bg-secondary dark:bg-black sticky top-0 z-50  ">
@@ -146,7 +146,7 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar"
                 >
                   <div className="w-8 rounded-full hidden md:block">
-                    <img alt="user" src={user?.photoURL} />
+                  <img src={user?.photoURL} alt={user?.displayName} />
                   </div>
                 </div>
                 <ul

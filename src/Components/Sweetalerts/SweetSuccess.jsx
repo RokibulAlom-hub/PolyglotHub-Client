@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
-const SweetSuccess = () => {
-
-    return Swal.fire({
-      title: "Good job!",
-      text: "Your Work is Done ",
-      icon: "success"
-    });
- 
-
-   
+const SweetSuccess = ({ titletxt, subtxt, icon }) => {
+  return Swal.fire({
+    title: titletxt,
+    text: subtxt,
+    icon: icon,
+  });
 };
 
 export default SweetSuccess;

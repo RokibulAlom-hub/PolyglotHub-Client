@@ -17,7 +17,7 @@ const Findtutor = () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/get-all-tutors?search=${search}`
       );
-      console.log(data);
+      // console.log(data);
       setAlltutor(data);
     } catch (error) {
       // console.error("Error getting data:", error);

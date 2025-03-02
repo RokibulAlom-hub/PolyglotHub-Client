@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { FaGoogle } from "react-icons/fa"; // Import Google icon from React Icons
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
-import SweetError from "../../Components/Sweetalerts/SweetError";
 import Headers from "../../Components/Heading/Headers";
 
 export default function Register() {
   const navigate = useNavigate();
   const { googlelogin, createUserByemail, updateUserData, setUser, user } =
     useAuth();
+  const [showSuccess, setShowsuccess] = useState(false);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -28,19 +28,25 @@ export default function Register() {
         updateUserData({ displayName: name, photoURL: photoURL }).then(() => {
           setUser({ displayName: name, photoURL: photoURL, ...user });
         });
-        SweetSuccess();
+        setShowsuccess(true)
         navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
         // console.log(errorMessage);
-        SweetError();
       });
   };
 
   const handleGoogleLogin = () => {
     googlelogin().then((result) => {
-      // console.log(result);
+      const gogggleInfo = result.user;
+      setUser({
+        displayName: gogggleInfo.displayName,
+        photoURL: gogggleInfo.photoURL,
+        ...user,
+      });
+      // console.log(gogggleInfo);
+      setShowsuccess(true)
       navigate("/");
     });
     // .catch((err) => console.log(err.message));
@@ -48,8 +54,15 @@ export default function Register() {
 
   return (
     <div className="flex items-center justify-center min-h-screen  ">
+      {showSuccess && (
+        <SweetSuccess
+          titletxt=" Registerd"
+          subtxt="Successfull"
+          icon="success"
+        ></SweetSuccess>
+      )}
       <div className="w-full max-w-md border dark:border-gray-600 p-8 space-y-8  rounded shadow-md">
-      <Headers headtext="Register"></Headers>
+        <Headers headtext="Register"></Headers>
         <form onSubmit={handleRegister} className="space-y-4">
           <div>
             <input
