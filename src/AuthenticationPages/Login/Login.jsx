@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { FaGoogle } from "react-icons/fa"; // Import Google icon from React Icons
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
+import Lottie from "lottie-react";
 import Headers from "../../Components/Heading/Headers";
 import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
+import animation from "../../../public/Animation - 1741479934400.json";
 export default function Login() {
   const navigate = useNavigate();
-  const { googlelogin, userLogin,user, setUser } = useAuth();
-  const [showSuccess , setShowsuccess] = useState(false)
+  const { googlelogin, userLogin, user, setUser } = useAuth();
+  const [showSuccess, setShowsuccess] = useState(false);
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -20,21 +21,24 @@ export default function Login() {
     userLogin(email, password)
       .then((result) => {
         // console.log("user logged in", result.user);
-        setShowsuccess(true)
+        setShowsuccess(true);
         navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
         // console.log(errorMessage);
-        
       });
   };
 
   const handleGoogleLogin = () => {
     googlelogin().then((result) => {
       const gogggleInfo = result.user;
-      setUser({displayName:gogggleInfo.displayName, photoURL:gogggleInfo.photoURL,...user})
-      setShowsuccess(true)
+      setUser({
+        displayName: gogggleInfo.displayName,
+        photoURL: gogggleInfo.photoURL,
+        ...user,
+      });
+      setShowsuccess(true);
       // console.log(gogggleInfo);
       navigate("/");
     });
@@ -42,9 +46,15 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      {showSuccess && <SweetSuccess titletxt=" Logged In" subtxt="Successfull" icon="success"></SweetSuccess>}
-      <div className="w-full max-w-md border dark:border-gray-600 p-8 space-y-8  rounded shadow-md">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen gap-4">
+      {showSuccess && (
+        <SweetSuccess
+          titletxt=" Logged In"
+          subtxt="Successfull"
+          icon="success"
+        ></SweetSuccess>
+      )}
+      <div className="w-full max-w-md border dark:border-gray-600 p-8 space-y-8 rounded shadow-md">
         <Headers headtext="Login"></Headers>
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
@@ -88,7 +98,9 @@ export default function Login() {
             </Link>
           </p>
         </div>
+        {/* react lottie file  */}
       </div>
+      <Lottie animationData={animation} loop={true} />
     </div>
   );
 }
