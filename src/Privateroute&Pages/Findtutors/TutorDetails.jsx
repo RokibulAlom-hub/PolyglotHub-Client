@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
 import SweetError from "../../Components/Sweetalerts/SweetError";
+import Swal from "sweetalert2";
 
 const TutorDetails = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const TutorDetails = () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/single-tutorials/${_id}`
       );
-        //  console.log(data);
+      //  console.log(data);
       setTutor(data);
     } catch (error) {
       // console.error("Error getting data:", error);
@@ -45,12 +46,16 @@ const TutorDetails = () => {
         `${import.meta.env.VITE_API_URL}/add-booking`,
         bookedInfo
       );
-      // console.log(data);
-      SweetSuccess();
-      navigate("/findtutor");
+      console.log(data);
+      Swal.fire({
+        title: "Tutorial",
+        text: " Added Successfully",
+        icon: "success",
+      });
+      navigate("/mybookedtutors");
     } catch (error) {
-      // console.error("Error getting data:", error);
-      SweetError();
+      console.log("Error getting data:", error);
+      alert(error);
     }
   };
   return (

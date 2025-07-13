@@ -68,7 +68,7 @@ export default function Register() {
             <input
               type="text"
               name="name"
-              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg bg-white"
               placeholder="Name Please"
               required
             />
@@ -77,7 +77,7 @@ export default function Register() {
             <input
               type="url"
               name="photo"
-              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg bg-white"
               placeholder="PhotoURl"
               required
             />
@@ -86,7 +86,7 @@ export default function Register() {
             <input
               type="email"
               name="email"
-              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg bg-white"
               placeholder="Email Address"
               required
             />
@@ -95,7 +95,7 @@ export default function Register() {
             <input
               type="password"
               name="password"
-              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg bg-white"
               placeholder="Password"
               required
             />

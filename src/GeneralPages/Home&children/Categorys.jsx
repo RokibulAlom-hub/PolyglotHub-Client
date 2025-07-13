@@ -64,6 +64,25 @@ const Categorys = () => {
                 </div>
               </Link>
             ))}
+             <Link
+                to={`/findtutor`}
+                className="p-1 lg:p-4 flex flex-row gap-5 items-center  justify-evenly border  hover:scale-105 hover:shadow-accent duration-500 ease-in-out shadow-2xl"
+              >
+                {/* heading */}
+                <div>
+                  <h3 className="text-xl font-bold dark:text-secondary">
+                    See More
+                  </h3>
+                </div>
+              
+                {/* details button */}
+                <div>
+                  <p className="text-accent md:hidden lg:block">
+                    {" "}
+                    <FaArrowRightLong />{" "}
+                  </p>
+                </div>
+              </Link>
           </div>
         )}
       </div>

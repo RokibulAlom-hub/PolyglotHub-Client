@@ -54,7 +54,7 @@ const Navbar = () => {
               {user ? (
                 <details>
                   <summary>MyLinks</summary>
-                  <ul className="bg-blue-400   rounded-t-none p-2">
+                  <ul className="bg-secondary  dark:bg-slate-700 rounded-t-none p-2">
                     <li>
                       <NavLink to="/addtutorials">AddTutorials</NavLink>
                     </li>
@@ -110,7 +110,7 @@ const Navbar = () => {
                 {user ? (
                   <details>
                     <summary>MyLinks</summary>
-                    <ul className=" dark:bg-secondary dark:text-black rounded-t-none p-2">
+                    <ul className=" bg-secondary dark:bg-slate-700  rounded-t-none p-2">
                       <li>
                         <NavLink to="/addtutorials">AddTutorials</NavLink>
                       </li>

@@ -61,7 +61,7 @@ export default function Login() {
             <input
               type="email"
               name="email"
-              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg bg-white"
               placeholder="Email Address"
               required
             />
@@ -71,13 +71,13 @@ export default function Login() {
               type="password"
               name="password"
               placeholder="Password"
-              className="w-full px-3 py-2 border  rounded-lg shadow-sm"
+              className="w-full px-3 py-2 border  rounded-lg bg-white"
               required
             />
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 rounded-lg shadow-sm bg-secondary text-black  hover:bg-accent hover:scale-105 font-semibold hover:text-white duration-500 ease-in-out"
+            className="w-full px-4 py-2 rounded-lg  bg-secondary text-black  hover:bg-accent hover:scale-105 font-semibold hover:text-white duration-500 ease-in-out"
           >
             Login
           </button>
@@ -85,7 +85,7 @@ export default function Login() {
         <div className="text-center">
           <button
             onClick={handleGoogleLogin}
-            className="w-full px-4 py-2 mt-4  rounded-lg shadow-sm  flex items-center justify-center bg-accent text-white hover:bg-secondary hover:scale-110 hover:text-black duration-500 ease-in-out"
+            className="w-full px-4 py-2 mt-4  rounded-lg  flex items-center justify-center bg-accent text-white hover:bg-secondary hover:scale-110 hover:text-black duration-500 ease-in-out"
           >
             <FaGoogle className="mr-2" /> Continue with Google
           </button>
