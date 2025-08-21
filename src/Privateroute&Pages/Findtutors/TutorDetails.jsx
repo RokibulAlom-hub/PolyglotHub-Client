@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import SweetSuccess from "../../Components/Sweetalerts/SweetSuccess";
-import SweetError from "../../Components/Sweetalerts/SweetError";
+
 import Swal from "sweetalert2";
 
 const TutorDetails = () => {
@@ -34,9 +33,12 @@ const TutorDetails = () => {
       language: tutor.language,
       price: tutor.price,
       tutorEmail: tutor.email,
-      loggedInEmail: user.email,
+      loggedInEmail: user?.email,
       review: tutor.review,
+      meetLink:"https://meet.google.com/qxw-brba-qcf"
     };
+    console.log(bookedInfo);
+    
     if (user?.email === tutor.email) {
       return alert("tutor and tuorials booker is same so go back");
     }
@@ -52,12 +54,13 @@ const TutorDetails = () => {
         text: " Added Successfully",
         icon: "success",
       });
-      navigate("/mybookedtutors");
+      navigate("/findtutor");
     } catch (error) {
       console.log("Error getting data:", error);
       alert(error);
     }
   };
+  
   return (
     <div className="flex items-center  dark:text-white justify-center min-h-screen ">
       <div className="w-full max-w-4xl  my-6 border dark:border-gray-600  p-8 space-y-8  rounded-lg shadow-md">
@@ -74,6 +77,7 @@ const TutorDetails = () => {
           <span className="font-semibold">Description:</span>{" "}
           {tutor.description}
         </p>
+       
         <p className="text-lg mb-4">
           <span className="font-semibold">Price:</span> ${tutor.price}
         </p>

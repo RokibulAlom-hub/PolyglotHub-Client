@@ -13,6 +13,8 @@ import MyBookedTutors from "../Privateroute&Pages/Mybooked/MyBookedTutors";
 import TutorCategory from "../GeneralPages/Find-tutor-categeory/TutorCategory";
 import UpdateTutorials from "../Privateroute&Pages/UpdateTutorPage/UpdateTutorials";
 import Contact from "../GeneralPages/Contact";
+import PaymentSuccess from "../Sharedpage&Comp/PaymentPages/Payment-Success";
+
 
 const router = createBrowserRouter([
   {
@@ -91,6 +93,11 @@ const router = createBrowserRouter([
           ),
       },
     ],
+  },
+  {
+     path: "/success-payment",
+    element: <PaymentSuccess/>,
+   
   },
 ]);
 

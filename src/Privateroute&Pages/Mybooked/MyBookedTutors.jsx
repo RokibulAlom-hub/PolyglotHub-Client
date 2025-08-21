@@ -54,7 +54,33 @@ const MyBookedTutors = () => {
       // console.error("Error updating review:", error);
     }
   };
+  //  console.log(booked);
 
+  const onPaymentHandle = async (tutorData) => {
+    const { loggedInEmail, language, price } = tutorData;
+    // console.log(loggedInEmail,language,price);
+    const payData = {
+      email: loggedInEmail,
+      transactionId: "",
+      language,
+      price,
+      status: "pending",
+    };
+
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/create-payment`,
+        payData
+      );
+      console.log(data);
+      if (data?.gatewayUrl) {
+        window.location.replace(data?.gatewayUrl);
+      }
+    } catch (error) {
+      console.log("Error getting data:", error);
+      alert(error);
+    }
+  };
   return (
     <div className="flex items-center justify-center min-h-screen ">
       <div className="w-full max-w-6xl p-8 space-y-8  rounded-lg shadow-md">
@@ -80,14 +106,32 @@ const MyBookedTutors = () => {
                   <span className="font-semibold">Language:</span>{" "}
                   {tutor?.language}
                 </p>
+
                 <p>
                   <span className="font-semibold">Price:</span> ${tutor?.price}
                 </p>
                 <p>
                   <span className="font-semibold">Review:</span> {tutor?.review}
                 </p>
-                <div onClick={() => updateReview(tutor?._id)}>
-                  <Button btntext="Reveiw"></Button>
+                <div
+                  onClick={() => updateReview(tutor?._id)}
+                  className="space-x-3"
+                >
+                  <a
+                    href={`${tutor?.meetLink}`}
+                    className="p-2 text-center bg-blue-800 text-white rounded-md font-semibold   hover:scale-110 duration-200 ease-in-out"
+                  >
+                    ClassLink
+                  </a>
+                  <button className="p-2 text-center bg-secondary text-black rounded-md font-semibold  hover:bg-accent hover:scale-110 hover:text-white duration-200 ease-in-out">
+                    Reveiw
+                  </button>
+                  <button
+                    onClick={() => onPaymentHandle(tutor)}
+                    className="p-2 text-center bg-green-700 text-white rounded-md font-semibold   hover:scale-110  duration-200 ease-in-out"
+                  >
+                    Pay Fee
+                  </button>
                 </div>
               </div>
             ))}
